@@ -1,6 +1,6 @@
 # Contributing guidelines
 
-First of all, thanks for your interest in helping us build Particl! As more coders are joining our cause, we had to create these guidelines to set some standards and keep everyone on the same track. So here are a few rules and tips to get you started faster and make everyone's life a bit easier.
+First of all, thanks for your interest in helping us build Ghost! As more coders are joining our cause, we had to create these guidelines to set some standards and keep everyone on the same track. So here are a few rules and tips to get you started faster and make everyone's life a bit easier.
 
 1. [Dev workflow](#dev-workflow)
     1. [Issues](#1-issues)

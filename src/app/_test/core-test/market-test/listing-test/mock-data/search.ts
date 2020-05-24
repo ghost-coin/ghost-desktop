@@ -478,7 +478,7 @@ const listingSearch = [
         'ParentItemCategory': {
           'id': 2,
           'key': 'cat_particl',
-          'name': 'Particl',
+          'name': 'Ghost',
           'description': '',
           'parentItemCategoryId': 1,
           'updatedAt': 1547020199174,

@@ -104,7 +104,7 @@
       <mat-form-field class="full-width">
         <mat-icon matPrefix class="icon" fontSet="partIcon" fontIcon="part-cryptocurrency-particl"></mat-icon>
         <input matInput min="0" (paste)="numericValidator($event)" (keypress)="numericValidator($event)" placeholder="Price per item *" formControlName="basePrice" type="text">
-        <span matSuffix>PART</span>
+        <span matSuffix>GHOST</span>
       </mat-form-field>
 
       <div class="row" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="25px">
@@ -113,17 +113,17 @@
         </mat-form-field-->
         <mat-form-field fxFlex="50%" class="auto-width">
           <input matInput min="0" (paste)="numericValidator($event)" (keypress)="numericValidator($event)" placeholder="Domestic shipping price *" formControlName="domesticShippingPrice" type="text">
-          <span matSuffix>PART</span>
+          <span matSuffix>GHOST</span>
         </mat-form-field>
         <mat-form-field fxFlex="50%" class="auto-width">
           <input matInput min="0" (paste)="numericValidator($event)" (keypress)="numericValidator($event)" placeholder="International shipping price *" formControlName="internationalShippingPrice"
                  type="text">
-          <span matSuffix>PART</span>
+          <span matSuffix>GHOST</span>
         </mat-form-field>
       </div>
       <p class="widget-help">
         Don't forget to include quantity units (e.g. 1 piece, 1 pair, 1 kg or 100 ml).<br>
-        Prices are in PART.
+        Prices are in GHOST.
       </p>
     </mat-card>
   </div>

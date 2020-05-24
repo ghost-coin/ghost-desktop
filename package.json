@@ -1,12 +1,13 @@
 {
-  "name": "particl-desktop",
+  "name": "ghost-desktop",
   "version": "2.0.0-alpha-testnet",
   "branch": "market",
   "license": "GPL-2.0",
-  "description": "Particl Desktop - decentralized marketplace, private currency, messaging & self-governance",
-  "homepage": "https://particl.io",
+  "description": "Ghost Desktop -  private currency, messaging & self-governance",
+  "homepage": "https://www.ghostbymcafee.com/",
   "keywords": [
-    "particl",
+    "ghost",
+    "mcafee",
     "angular2",
     "angular4",
     "angular-cli",
@@ -14,7 +15,7 @@
     "webpack",
     "typescript"
   ],
-  "author": "Particl contributors",
+  "author": "Ghost contributors",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -46,10 +47,10 @@
     "travis:test": "ng test --watch=false --code-coverage",
     "start": "yarn run start:electron:fast"
   },
-  "productName": "Particl Desktop Testnet",
+  "productName": "Ghost Desktop Testnet",
   "build": {
     "electronVersion": "4.0.3",
-    "appId": "io.particl.desktop",
+    "appId": "io.ghost.desktop",
     "npmRebuild": true,
     "directories": {
       "buildResources": "resources",
@@ -114,11 +115,11 @@
       "uninstallerIcon": "resources/icon.ico",
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "menuCategory": "Particl Desktop Testnet",
+      "menuCategory": "Ghost Desktop Testnet",
       "runAfterFinish": true
     },
     "linux": {
-      "maintainer": "particl contributors <hello@particl.io>",
+      "maintainer": "ghost contributors <hello@ghostbymcafee.com>",
       "artifactName": "${name}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
@@ -140,11 +141,11 @@
           ]
         }
       ],
-      "executableName": "Particl Desktop",
+      "executableName": "Ghost Desktop",
       "desktop": {
-        "Comment": "Particl, P2P Privacy ecosystem",
-        "Icon": "particl-desktop",
-        "Name": "Particl Desktop Testnet",
+        "Comment": "Ghost, P2P Privacy ecosystem",
+        "Icon": "ghost-desktop",
+        "Name": "Ghost Desktop Testnet",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
@@ -157,7 +158,7 @@
     "asar": true,
     "asarUnpack": [
       "node_modules/sqlite3/**/*",
-      "node_modules/particl-marketplace/**/*"
+      "node_modules/ghost-marketplace/**/*"
     ]
   },
   "dependencies": {
@@ -175,7 +176,7 @@
     "lodash": "^4.17.11",
     "ng2-nvd3": "^2.0.0",
     "node-unzip-2": "^0.2.1",
-    "particl-marketplace": "^0.0.54",
+    "ghost-marketplace": "^0.0.54",
     "rx-ipc-electron": "^0.1.2",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
