@@ -1,7 +1,7 @@
 var got = require("got");
 var fs = require('fs');
 
-var releasesURL = "https://api.github.com/repos/particl/particl-core/releases";
+var releasesURL = "https://api.github.com/repos/ghost-coin/ghost-core/releases";
 var signaturesURL = "https://api.github.com/repos/particl/gitian.sigs/contents";
 var maintainer = "tecnovert";
 
