@@ -58,8 +58,8 @@ window.ipc = new SafeIpcRenderer([
   'daemon',
   'close-gui',
 
-  //'start-market',
-  //'stop-market',
+  'start-market',
+  'stop-market',
 
   'zmq',
   'rpc-configuration',

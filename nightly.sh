@@ -11,8 +11,8 @@ then
     DEBUG=electron-builder yarn run travis:linux
 
     cd packages
-    mv `ls | grep "ghost-desktop.*linux-x64.zip"` ghost-desktop-linux-x64-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip
-    mv `ls | grep "ghost-desktop.*linux-amd64.deb"` ghost-desktop-linux-amd64-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.deb
+    mv `ls | grep "particl-desktop.*linux-x64.zip"` particl-desktop-linux-x64-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip
+    mv `ls | grep "particl-desktop.*linux-amd64.deb"` particl-desktop-linux-amd64-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.deb
     cd ..
 
     echo -en 'travis_fold:end:script.linux\\r'
@@ -26,7 +26,7 @@ then
     DEBUG=electron-builder yarn run travis:mac
 
     cd packages
-    mv `ls | grep "ghost-desktop.*mac.zip"` ghost-desktop-mac-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip
+    mv `ls | grep "particl-desktop.*mac.zip"` particl-desktop-mac-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip
     cd ..
 
     echo -en 'travis_fold:end:script.mac\\r'
@@ -50,13 +50,13 @@ then
     DEBUG=electron-builder yarn run travis:win64
 
     cd packages
-    zip -r ghost-desktop-win-x64-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip win-unpacked
+    zip -r particl-desktop-win-x64-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip win-unpacked
     cd ..
 
     DEBUG=electron-builder yarn run travis:win32
 
     cd packages
-    zip -r ghost-desktop-win-ia32-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip win-ia32-unpacked
+    zip -r particl-desktop-win-ia32-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip win-ia32-unpacked
     cd ..
 
     ls -l ./packages
@@ -72,7 +72,7 @@ then
     Uploads=("${TRUE_COMMIT_MESSAGES}\nNote: the download links expire after 10 days.\n")
     export AUTHOR=$(git --no-pager show -s --format='%an %ae' $TRUE_COMMIT)
     Matrix=("<p><strong>Help developer ${AUTHOR} by testing these builds and reporting any issues!</strong><br />${TRUE_COMMIT_MESSAGES}</p>\n<p>Note: the download links expire after 10 days.</p>\n")
-    for fn in `ls | grep "ghost-desktop"`; do
+    for fn in `ls | grep "particl-desktop"`; do
         echo "Uploading $fn"
         url="$(curl  -H "Max-Days: 10" -s --upload-file $fn https://transfer.sh/$fn)\n"
         onion="$(echo $url | sed 's,https://transfer.sh,http://jxm5d6emw5rknovg.onion,g')"
