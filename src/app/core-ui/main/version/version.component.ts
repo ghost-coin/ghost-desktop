@@ -27,11 +27,11 @@ export class VersionComponent implements OnInit, OnDestroy {
 
   @Input() daemonVersion: string = '';
   public clientVersion: string = environment.version;
-  public marketVersion: string = environment.marketVersion;
+  //public marketVersion: string = environment.marketVersion;
   public isClientLatest: boolean = true;
   public isUpdateProcessing: boolean = false;
   public clientUpdateText: string = '';
-  public isMarketWallet: boolean = false;
+  //public isMarketWallet: boolean = false;
   private destroyed: boolean = false;
   private log: any = Log.create('VersionComponent');
 
@@ -41,7 +41,7 @@ export class VersionComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.isMarketWallet = (marketConfig.allowedWallets || []).includes(this._rpc.wallet);
+    //this.isMarketWallet = (marketConfig.allowedWallets || []).includes(this._rpc.wallet);
     // Initially need to call to verify the client version
     this.getCurrentClientVersion()
     // check new update in every 30 minute

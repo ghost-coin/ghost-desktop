@@ -43,7 +43,7 @@ exports.parse = function() {
     arg = arg.substr(nDashes);
 
     if (nDashes === 2) { /* double-dash: desktop-only argument */
-      // delete param, so it doesn't get passed to particl-core
+      // delete param, so it doesn't get passed to ghost-core
       process.argv.splice(argIndex, 1);
       let verboseLevel = isVerboseLevel(arg);
       if (verboseLevel) {
@@ -53,7 +53,7 @@ exports.parse = function() {
     } else if (nDashes === 1) { /* single-dash: core argument */
 
       // MacOS / OSX likes to add a Process Serial Numbers
-      // filter it out before being passed to particl-core.
+      // filter it out before being passed to ghost-core.
       if (arg.startsWith("psn_")) {
         process.argv.splice(argIndex, 1);
       }

@@ -11,7 +11,7 @@ const daemonConfig  = require('./daemon/daemonConfig');
 const multiwallet   = require('./multiwallet');
 const notification  = require('./notification/notification');
 const closeGui      = require('./close-gui/close-gui');
-const market        = require('./market/market');
+//const market        = require('./market/market');
 
 
 exports.start = function (mainWindow) {
@@ -19,7 +19,7 @@ exports.start = function (mainWindow) {
   notification.init();
   closeGui.init();
   daemon.init();
-  market.init();
+  //market.init();
 
   /* Initialize ZMQ */
   zmq.init(mainWindow);
@@ -109,16 +109,18 @@ electron.app.on('before-quit', async function beforeQuit(event) {
   closeGui.destroy();
 
   daemonManager.shutdown();
-  market.stop()
-  .then(() => sleep(2000))
-  .then(async () => {
-    await daemon.stop().catch(() => {
+  //market.stop()
+  //.then(() => sleep(2000))
+ // .then(async () => {
+	await sleep(2000); // taken from the lines above
+	await daemon.stop()
+	.catch(() => {
       // Shutting down now, so a rejection or error should not stop the rest of the app shutting down, ie: do nothing
     })
-  })
-  .then(() => {
+ // })
+ // .then(() => {
     log.info('daemon.stop() resolved!');
-  });
+  //});
 });
 
 electron.app.on('quit', (event, exitCode) => {
