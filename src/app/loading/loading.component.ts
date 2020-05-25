@@ -7,11 +7,11 @@ import { RpcService } from 'app/core/rpc/rpc.service';
 import { MultiwalletService } from 'app/multiwallet/multiwallet.service';
 import { UpdaterService } from './updater.service';
 import { take } from 'rxjs/operators';
-//import { MarketService } from 'app/core/market/market.module';
+import { MarketService } from 'app/core/market/market.module';
 import { termsObj } from 'app/installer/terms/terms-txt';
 import { environment } from 'environments/environment';
 
-//import * as marketConfig from '../../../modules/market/config.js';
+import * as marketConfig from '../../../modules/market/config.js';
 
 @Component({
   selector: 'app-loading',
@@ -32,7 +32,7 @@ export class LoadingComponent implements OnInit {
     private multi: MultiwalletService,
     private con: ConnectionCheckerService,
     private updater: UpdaterService,
-    //private _market: MarketService
+    private _market: MarketService
   ) {
     this.log.i('loading component initialized');
   }
@@ -106,12 +106,12 @@ export class LoadingComponent implements OnInit {
 
       this.log.d('Where are we going next?', getwalletinfo);
       if ('hdseedid' in getwalletinfo) {
-        //const isMarketWallet = (marketConfig.allowedWallets || []).includes(this.rpc.wallet);
-        //if (isMarketWallet) {
-        //  this.startMarketService();
-        // } else {
+        const isMarketWallet = (marketConfig.allowedWallets || []).includes(this.rpc.wallet);
+        if (isMarketWallet) {
+          this.startMarketService();
+        } else {
           this.goToWallet();
-        //}
+        }
       } else {
         this.goToInstaller(getwalletinfo);
       }
@@ -143,7 +143,7 @@ export class LoadingComponent implements OnInit {
     this.router.navigate(['installer', 'error']);
   }
 
- /*  private startMarketService() {
+  private startMarketService() {
     this._market.startMarket(this.rpc.wallet).subscribe(
       () => {
         // TODO: Leaving this here for now, but it requires the wallet to be unlocked, so doesn't work as expected.
@@ -153,11 +153,11 @@ export class LoadingComponent implements OnInit {
       (err) => this.log.er('Request to start market failed!'),
       () => this.goToWallet()
     )
-  } */
+  }
 
   private activateWallet(getwalletinfo: any, startSmsg: boolean = true) {
-    //const isMarketWallet = (marketConfig.allowedWallets || []).includes(this.rpc.wallet);
-    if (startSmsg){// || isMarketWallet) {
+    const isMarketWallet = (marketConfig.allowedWallets || []).includes(this.rpc.wallet);
+    if (startSmsg || isMarketWallet) {
       this.rpc.call('smsgenable', [this.rpc.wallet]).subscribe(
         () => {},
         (err) => this.log.er('smsgenable failed: ', err),
