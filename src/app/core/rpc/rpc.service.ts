@@ -15,7 +15,7 @@ declare global {
 }
 
 /**
- * The RPC service that maintains a single connection to the particld daemon.
+ * The RPC service that maintains a single connection to the ghostd daemon.
  *
  * It has two important functions: call and register.
  */
@@ -96,10 +96,10 @@ export class RpcService implements OnDestroy {
   }
 
   /**
-   * The call method will perform a single call to the particld daemon and perform a callback to
+   * The call method will perform a single call to the ghostd daemon and perform a callback to
    * the instance through the function as defined in the params.
    *
-   * @param {string} method  The JSON-RPC method to call, see ```./particld help```
+   * @param {string} method  The JSON-RPC method to call, see ```./ghostd help```
    * @param {Array<Any>} params  The parameters to pass along with the JSON-RPC request.
    * The content of the array is of type any (ints, strings, booleans etc)
    *

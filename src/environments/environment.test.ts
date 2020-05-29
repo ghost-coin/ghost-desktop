@@ -11,7 +11,7 @@ export const environment = {
   version: require('../../package.json').version,
   marketVersion: require('../../node_modules/particl-marketplace/package.json').version,
   particlHost: 'localhost',
-  particlPort: 51935,
+  particlPort: 51925,
   marketHost: 'localhost',
   marketPort: 3000,
   isTesting: true
