@@ -13,7 +13,7 @@ if (isEmptyObject(_options)) {
   _options = _processOpts.parse();
 }
 
-const conFilePath = path.join( cookie.getParticlPath(_options), 'ghost.conf');
+const conFilePath = path.join( cookie.getGhostPath(_options), 'ghost.conf');
 const IPC_CHANNEL_PUB = 'rpc-configuration';
 const IPC_CHANNEL_LISTEN = 'request-configuration';
 
