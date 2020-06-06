@@ -33,12 +33,12 @@ export class RpcService implements OnDestroy {
   /**
    * IP/URL for daemon (default = localhost)
    */
-  private hostname: String = environment.particlHost;
+  private hostname: String = environment.ghostHost;
 
   /**
    * Port number of default daemon
    */
-  private port: number = environment.particlPort;
+  private port: number = environment.ghostPort;
 
   private daemonProto: number = 0;
 

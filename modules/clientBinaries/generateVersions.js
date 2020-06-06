@@ -2,8 +2,8 @@ var got = require("got");
 var fs = require('fs');
 
 var releasesURL = "https://github.com/ghost-coin/ghost-private/releases";
-var signaturesURL = "https://api.github.com/repos/particl/gitian.sigs/contents";
-var maintainer = "tecnovert";
+var signaturesURL = "https://api.github.com/repos/ghost-coin/gitian.sigs/contents";
+var maintainer = "TheQuantumPhysicist";
 
 /*
  * Filters a hash file to find this asset's hash
@@ -135,7 +135,7 @@ var getHashesForPlatform = function (platform, path, hashes) {
 
 /*
  * Entry point
- * get Particl latest release files
+ * get Ghost latest release files
  */
 got(`${releasesURL}`).then(response => {
   const body = JSON.parse(response.body);

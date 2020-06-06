@@ -15,7 +15,7 @@ const Observable = require('rxjs/Observable').Observable;
 exports.init = function () {
     rxIpc.registerListener('notification', function (title, desc, params) {
         // Fix for windows 10
-        electron.setAppUserModelId("io.particl.desktop");
+        electron.setAppUserModelId("com.ghostbymcafee.desktop");
         let notification = new Notification({
             'title': title,
             'body': desc,

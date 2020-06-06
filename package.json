@@ -35,8 +35,10 @@
     "package:mac": "yarn run build:electron:prod && electron-builder -m && yarn run checksum",
     "package:linux": "yarn run build:electron:prod && electron-builder -l && yarn run checksum",
     "package:win": "yarn run build:electron:prod && electron-builder --win --x64 && yarn run checksum",
+    "package:win:test": "yarn run build:electron && electron-builder --win --x64 && yarn run checksum",
     "package:win32": "yarn run build:electron:prod && electron-builder --win --ia32 && yarn run checksum",
     "package": "yarn run build:electron:prod && electron-builder -ml && electron-builder --win --x64 && yarn run checksum",
+    "package:test": "yarn run build:electron:prod && electron-builder -ml && electron-builder --win --x64 && yarn run checksum",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js",
     "compodoc": "compodoc -p tsconfig.json -d docs",
     "generate-release": "node ./modules/clientBinaries/generateVersions.js",
@@ -50,7 +52,7 @@
   "productName": "Ghost Desktop Testnet",
   "build": {
     "electronVersion": "4.0.3",
-    "appId": "io.ghost.desktop",
+    "appId": "com.ghostbymcafee.desktop",
     "npmRebuild": true,
     "directories": {
       "buildResources": "resources",
@@ -158,7 +160,7 @@
     "asar": true,
     "asarUnpack": [
       "node_modules/sqlite3/**/*",
-      "node_modules/ghost-marketplace/**/*"
+      "node_modules/particl-marketplace/**/*"
     ]
   },
   "dependencies": {
@@ -176,7 +178,7 @@
     "lodash": "^4.17.11",
     "ng2-nvd3": "^2.0.0",
     "node-unzip-2": "^0.2.1",
-    "ghost-marketplace": "^0.0.54",
+    "particl-marketplace": "^0.0.54",
     "rx-ipc-electron": "^0.1.2",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
