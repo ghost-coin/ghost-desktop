@@ -56,7 +56,7 @@
        width="2"
        height="3"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect962" />
     <rect
        x="732"
@@ -64,7 +64,7 @@
        width="2"
        height="5"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect964" />
     <rect
        x="736"
@@ -72,7 +72,7 @@
        width="2"
        height="7"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect966" />
     <rect
        x="740"
