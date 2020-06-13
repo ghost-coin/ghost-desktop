@@ -28,7 +28,8 @@ This repository is the user interface that works in combination with our [`ghost
 
 ### Boostrapping for development:
 
-* Download + Install [Node.js®](https://nodejs.org/) 6.4—7.10
+* Download + Install [Yarn](https://classic.yarnpkg.com/en/docs/install)
+* Download + Install [Node.js®](https://nodejs.org/) 8.12.0 - ?
 * Download + Install [git](https://git-scm.com/)
 
 ```bash
@@ -78,4 +79,4 @@ sudo apt-get install g++-multilib
 
 ## Contributors
 
-Join us in [#ghost-dev:matrix.org](https://riot.im/app/#/room/#ghost-dev:matrix.org) on [Riot](https://riot.im)
+Join us in [ghostcoinchat](https://t.me/ghostcoinchat) on Telegram
