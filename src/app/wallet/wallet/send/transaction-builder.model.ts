@@ -5,8 +5,8 @@ export enum TxType {
 }
 
 export class TransactionBuilder {
-  input: TxType = TxType.PUBLIC;
-  output: TxType = TxType.PUBLIC;
+  input: TxType = TxType.ANON;
+  output: TxType = TxType.ANON;
   toAddress: string;
   toLabel: string;
   address: string;
@@ -18,7 +18,7 @@ export class TransactionBuilder {
   validAddress: boolean;
   validAmount: boolean;
   isMine: boolean;
-  currency: string = 'part';
+  currency: string = 'ghost';
   ringsize: number = 8;
   subtractFeeFromAmount: boolean = false;
   estimateFeeOnly: boolean = true;

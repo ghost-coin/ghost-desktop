@@ -28,7 +28,7 @@ export class ReceiveComponent implements OnInit {
   PAGE_SIZE_OPTIONS: Array<number> = [10, 25, 50];
 
   /* UI State */
-  public type: string = 'public';
+  public type: string = 'private';
   public query: string = '';
   public address: string = '';
   testnet: boolean = false;
@@ -169,9 +169,9 @@ export class ReceiveComponent implements OnInit {
     this.query = '';
     this.showOldAddress = false;
     if (tab) {
-      this.setAddressType('private');
-    } else {
       this.setAddressType('public');
+    } else {
+      this.setAddressType('private');
     }
   }
 

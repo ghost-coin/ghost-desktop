@@ -16,10 +16,10 @@ This repository is the user interface that works in combination with our [`ghost
 
 # Contribute
 
-[![Snyk](https://snyk.io/test/github/ghost-coin/ghost-desktop/badge.svg)](https://snyk.io/test/github/ghost/ghost-desktop)
-[![Build Status](https://travis-ci.org/ghost-coin/ghost-desktop.svg?branch=master)](https://travis-ci.org/ghost/ghost-desktop)
-[![Coverage Status](https://coveralls.io/repos/github/ghost-coin/ghost-desktop/badge.svg?branch=master)](https://coveralls.io/github/ghost/ghost-desktop?branch=master)
-[![Code Climate](https://codeclimate.com/github/ghost-coin/ghost-desktop/badges/gpa.svg)](https://codeclimate.com/github/ghost/ghost-desktop)
+[![Snyk](https://snyk.io/test/github/ghost-coin/ghost-desktop/badge.svg)](https://snyk.io/test/github/ghost-coin/ghost-desktop)
+[![Build Status](https://travis-ci.org/ghost-coin/ghost-desktop.svg?branch=master)](https://travis-ci.org/ghost-coin/ghost-desktop)
+[![Coverage Status](https://coveralls.io/repos/github/ghost-coin/ghost-desktop/badge.svg?branch=master)](https://coveralls.io/github/ghost-coin/ghost-desktop?branch=master)
+[![Code Climate](https://codeclimate.com/github/ghost-coin/ghost-desktop/badges/gpa.svg)](https://codeclimate.com/github/ghost-coin/ghost-desktop)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ghost-coin/ghost-desktop.svg)](https://greenkeeper.io/)
 
 > Be sure to read our [Contributing Guidelines](CONTRIBUTING.md) first
@@ -33,7 +33,7 @@ This repository is the user interface that works in combination with our [`ghost
 * Download + Install [git](https://git-scm.com/)
 
 ```bash
-git clone https://github.com/ghost/ghost-desktop
+git clone https://github.com/ghost-coin/ghost-desktop
 cd ghost-desktop
 yarn install
 ```
@@ -79,4 +79,4 @@ sudo apt-get install g++-multilib
 
 ## Contributors
 
-Join us in [ghostcoinchat](https://t.me/ghostcoinchat) on Telegram
+Join us in [ghostcoinchat](https://t.me/ghostcoinbymcafee) on Telegram

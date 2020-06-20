@@ -51,7 +51,8 @@ export class AddAddressLabelComponent implements OnInit {
 
   addNewLabel(): void {
     let call = (this.type === 'public' ? 'getnewaddress' : (this.type === 'private' ? 'getnewstealthaddress' : ''));
-    let callParams = [this.label];
+    // Enabling bech32 encoding
+    let callParams = [this.label, true];
     let msg = `New ${this.type} address generated, with label ${this.label}!`;
     if (this.address !== '') {
       call = 'manageaddressbook';
