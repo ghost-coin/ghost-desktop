@@ -6,7 +6,7 @@
         "linux": {
           "arm": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-private/releases/download/testnet/v0.20.99.1/ghost-0.20.99.1-arm-linux-gnueabihf.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/testnet/v0.20.99.1/ghost-0.20.99.1-arm-linux-gnueabihf.tar.gz",
               "type": "tar",
               "sha256": "559998ce72c0888a0a1c0bf5a23a60fbe53c5a8f930704e8f15b32d7358ce49c",
               "bin": "ghost-0.20.99.1/bin/ghostd"
@@ -26,7 +26,7 @@
           },
           "ia32": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-private/releases/download/testnet/v0.20.99.1/ghost-0.20.99.1-i686-pc-linux-gnu_nousb.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/testnet/v0.20.99.1/ghost-0.20.99.1-i686-pc-linux-gnu_nousb.tar.gz",
               "type": "tar",
               "sha256": "99842b8da6b3bfd6d59539190e1cca43faa41dac082621c65e0c4b849147568a",
               "bin": "ghost-0.20.99.1/bin/ghostd"
@@ -46,7 +46,7 @@
           },
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-private/releases/download/testnet/v0.20.99.1/ghost-0.20.99.1-x86_64-linux-gnu_nousb.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/testnet/v0.20.99.1/ghost-0.20.99.1-x86_64-linux-gnu_nousb.tar.gz",
               "type": "tar",
               "sha256": "595d066cfa70e43b924659e77981a66e9aaf5925cd4e3205514dd1e2e8f4cb44",
               "bin": "ghost-0.20.99.1/bin/ghostd"
@@ -68,7 +68,7 @@
         "mac": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-private/releases/download/testnet/ghost-0.20.99.1-osx64.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/testnet/ghost-0.20.99.1-osx64.tar.gz",
               "type": "tar",
               "sha256": "5767a95c65fee6dca606b40beee6826bc85ae85651bd244daa82e97a9f4b8e94",
               "bin": "ghost-0.20.99.1/bin/ghostd"
@@ -90,7 +90,7 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-private/releases/download/testnet/ghost-0.20.99.1-win64.zip",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/testnet/ghost-0.20.99.1-win64.zip",
               "type": "zip",
               "sha256": "53f72d1f7390b49b678bad1b758cf5bc7a7ac814de0c73b3a95646324cb32ad1",
               "bin": "ghost-0.20.99.1/bin/ghostd.exe"

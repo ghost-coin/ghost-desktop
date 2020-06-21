@@ -1,7 +1,7 @@
 var got = require("got");
 var fs = require('fs');
 
-var releasesURL = "https://github.com/ghost-coin/ghost-private/releases";
+var releasesURL = "https://github.com/ghost-coin/ghost-core/releases";
 var signaturesURL = "https://api.github.com/repos/ghost-coin/gitian.sigs/contents";
 var maintainer = "TheQuantumPhysicist";
 
