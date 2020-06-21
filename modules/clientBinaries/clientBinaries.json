@@ -18,8 +18,8 @@
                   "-version"
                 ],
                 "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
+                  "Ghost Core version",
+                  "0.20.99.1"
                 ]
               }
             }
@@ -38,8 +38,8 @@
                   "-version"
                 ],
                 "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
+                  "Ghost Core version",
+                  "0.20.99.1"
                 ]
               }
             }

@@ -13,7 +13,7 @@ exports.getPath = function () {
     .replace('sunos',   'linux');
 
   if (platform == 'linux') {
-    return path.join(app.getPath('home'), '.particl');
+    return path.join(app.getPath('home'), '.ghost');
   } else {
     return app.getPath('userData');
   }

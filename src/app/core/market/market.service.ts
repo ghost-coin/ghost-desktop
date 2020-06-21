@@ -16,7 +16,7 @@ export class MarketService {
   public isMarketStarted: boolean = false;
   public _checkMarket: any;
 
-  // hostname: string = 'dev1.particl.xyz';
+  // hostname: string = 'dev1.ghostbymcafee.com';
   // hostname: string = 'localhost';
   // port: number = 3000;
   hostname: string = environment.marketHost;
