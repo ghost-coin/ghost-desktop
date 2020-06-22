@@ -45,7 +45,7 @@
   <div *ngIf="tab == 'main'">
 
     <div class="card row">
-      <div class="input-label col-xs-4">Start Particl on system login</div>
+      <div class="input-label col-xs-4">Start Ghost on system login</div>
       <input type="checkbox" [(ngModel)]="settings.main.autostart">
     </div>
 
@@ -65,7 +65,7 @@
           <input class="col-xs-4" type="text" [(ngModel)]="settings.main.feeAmount">
           <div class="col-xs-6">
             <select class="form-control" [(ngModel)]="settings.main.feeCurrency">
-              <option value="part">PART</option>
+              <option value="part">GHOST</option>
             </select>
           </div>
         </div>
@@ -83,7 +83,7 @@
             <input class="col-xs-4" type="text" [(ngModel)]="settings.main.feeAmount">
             <div class="col-xs-6">
                 <select class="form-control" [(ngModel)]="settings.main.feeCurrency">
-                    <option value="part">PART</option>
+                    <option value="part">GHOST</option>
                 </select>
             </div>
         </div>
@@ -105,7 +105,7 @@
               <input class="col-xs-4" type="text" [(ngModel)]="settings.main.reserveAmount">
               <div class="col-xs-6">
                   <select class="form-control" [(ngModel)]="settings.main.reserveCurrency">
-                      <option value="part">PART</option>
+                      <option value="part">GHOST</option>
                   </select>
               </div>
           </div>
@@ -212,7 +212,7 @@
       <div class="input-label col-xs-4">Unit to show amounts in</div>
       <div class="col-xs-4">
           <select class="form-control no-margin-left" [(ngModel)]="settings.display.units">
-              <option value="part">PART</option>
+              <option value="part">GHOST</option>
               <option value="usd">USD</option>
           </select>
       </div>
@@ -271,12 +271,12 @@
             <td><input type="checkbox" [(ngModel)]="settings.display.notify.selfPayment"></td>
           </tr>
           <tr>
-            <td>Received PART</td>
+            <td>Received GHOST</td>
             <td><input type="checkbox" [(ngModel)]="settings.display.show.partReceived"></td>
             <td><input type="checkbox" [(ngModel)]="settings.display.notify.partReceived"></td>
           </tr>
           <tr>
-            <td>Sent PART</td>
+            <td>Sent GHOST</td>
             <td><input type="checkbox" [(ngModel)]="settings.display.show.partSent"></td>
             <td><input type="checkbox" [(ngModel)]="settings.display.notify.partSent"></td>
           </tr>

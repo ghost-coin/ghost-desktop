@@ -7,11 +7,12 @@ declare const require: any;
 export const environment = {
   production: false,
   envName: 'dev',
-  releasesUrl: 'https://api.github.com/repos/particl/particl-desktop/releases/latest',
+  releasesUrl: 'https://api.github.com/repos/ghost-coin/ghost-desktop/releases/latest',
   version: require('../../package.json').version,
-  marketVersion: require('../../node_modules/particl-marketplace/package.json').version,
-  particlHost: 'localhost',
-  particlPort: 51935,
+ // marketVersion: require('../../node_modules/ghost-marketplace/package.json').version,
+  marketVersion: 'UNKNOWN',
+  ghostHost: 'localhost',
+  ghostPort: 51925,
   marketHost: 'localhost',
   marketPort: 3000,
   isTesting: false

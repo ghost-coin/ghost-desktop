@@ -1,6 +1,6 @@
 # Contributing guidelines
 
-First of all, thanks for your interest in helping us build Particl! As more coders are joining our cause, we had to create these guidelines to set some standards and keep everyone on the same track. So here are a few rules and tips to get you started faster and make everyone's life a bit easier.
+First of all, thanks for your interest in helping us build Ghost! As more coders are joining our cause, we had to create these guidelines to set some standards and keep everyone on the same track. So here are a few rules and tips to get you started faster and make everyone's life a bit easier.
 
 1. [Dev workflow](#dev-workflow)
     1. [Issues](#1-issues)
@@ -25,7 +25,7 @@ Quick overview of the workflow:
 
 ### 1. Issues
 
-When bug is found or new feature/suggestion proposed, [new Issue gets created](https://github.com/particl/partgui/issues). Our repo has predefined Issue template to help you started with that (the more info you provide the better).
+When bug is found or new feature/suggestion proposed, [new Issue gets created](https://github.com/ghost-coin/ghost-desktop/issues). Our repo has predefined Issue template to help you started with that (the more info you provide the better).
 
 - **Always keep the Issue's title short and descriptive!**
   - Examples:
@@ -69,7 +69,7 @@ When your branch is ready, do your changes and push them to the branch. Be sure 
 
 #### 2.3. Submit PR
 
-When your code is complete and ready, [submit new Pull Request](https://github.com/particl/partgui/compare).
+When your code is complete and ready, [submit new Pull Request](https://github.com/ghost-coin/ghost-desktop/compare).
 
 - **Always set your base branch to `dev`** (never to `master` or others!) – `dev` is our main development branch
 - **As always, write short and descriptive title** (you can keep it the same name as your branch)
@@ -103,5 +103,5 @@ Reviewers will either ask you for some code changes or approve the PR and merge 
   - [Declarative (static) API](https://github.com/angular/flex-layout/wiki/Declarative-API-Overview) - for basic static layouts
   - [Responsive API](https://github.com/angular/flex-layout/wiki/Responsive-API) - for responsive layouts
 - **Icons**
-  - all available icons are in [`/src/assets/icons/SVG`](https://github.com/particl/partgui/tree/dev/src/assets/icons/SVG)
+  - all available icons are in [`/src/assets/icons/SVG`](https://github.com/ghost-coin/ghost-desktop/tree/dev/src/assets/icons/SVG)
   - include via `<mat-icon fontSet="partIcon" fontIcon="part-<icon_name>"></mat-icon>`

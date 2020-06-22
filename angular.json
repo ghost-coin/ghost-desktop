@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Particl Wallet": {
+    "Ghost Wallet": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -72,24 +72,24 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Particl Wallet:build"
+            "browserTarget": "Ghost Wallet:build"
           },
           "configurations": {
             "docker1": {
-              "browserTarget": "Particl Wallet:build:docker1"
+              "browserTarget": "Ghost Wallet:build:docker1"
             },
             "docker2": {
-              "browserTarget": "Particl Wallet:build:docker2"
+              "browserTarget": "Ghost Wallet:build:docker2"
             },
             "production": {
-              "browserTarget": "Particl Wallet:build:production"
+              "browserTarget": "Ghost Wallet:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Particl Wallet:build"
+            "browserTarget": "Ghost Wallet:build"
           }
         },
         "test": {
@@ -129,7 +129,7 @@
         }
       }
     },
-    "Particl Wallet-e2e": {
+    "Ghost Wallet-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -138,7 +138,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "Particl Wallet:serve"
+            "devServerTarget": "Ghost Wallet:serve"
           }
         },
         "lint": {
@@ -155,7 +155,7 @@
       }
     }
   },
-  "defaultProject": "Particl Wallet",
+  "defaultProject": "Ghost Wallet",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

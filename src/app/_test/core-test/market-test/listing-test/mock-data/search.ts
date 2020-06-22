@@ -205,7 +205,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 22,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 1,
         'paymentInformationId': 19,
         'cryptocurrencyAddressId': null,
@@ -428,7 +428,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 21,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 2,
         'paymentInformationId': 18,
         'cryptocurrencyAddressId': null,
@@ -469,7 +469,7 @@ const listingSearch = [
       'createdAt': 1547019489907,
       'ItemCategory': {
         'id': 3,
-        'key': 'cat_particl_free_swag',
+        'key': 'cat_ghost_free_swag',
         'name': 'Free Swag',
         'description': '',
         'parentItemCategoryId': 2,
@@ -477,8 +477,8 @@ const listingSearch = [
         'createdAt': 1546597659889,
         'ParentItemCategory': {
           'id': 2,
-          'key': 'cat_particl',
-          'name': 'Particl',
+          'key': 'cat_ghost',
+          'name': 'Ghost',
           'description': '',
           'parentItemCategoryId': 1,
           'updatedAt': 1547020199174,
@@ -651,7 +651,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 20,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 1,
         'paymentInformationId': 17,
         'cryptocurrencyAddressId': null,
@@ -874,7 +874,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 19,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 1,
         'paymentInformationId': 16,
         'cryptocurrencyAddressId': null,
@@ -1097,7 +1097,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 18,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 3,
         'paymentInformationId': 15,
         'cryptocurrencyAddressId': null,
@@ -1491,7 +1491,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 17,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 1,
         'paymentInformationId': 14,
         'cryptocurrencyAddressId': null,
@@ -1811,7 +1811,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 16,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 1,
         'paymentInformationId': 13,
         'cryptocurrencyAddressId': null,
@@ -2092,7 +2092,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 13,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 1.32,
         'paymentInformationId': 10,
         'cryptocurrencyAddressId': null,
@@ -2429,7 +2429,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 12,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 2,
         'paymentInformationId': 9,
         'cryptocurrencyAddressId': null,
@@ -2647,7 +2647,7 @@ const listingSearch = [
       },
       'ItemPrice': {
         'id': 11,
-        'currency': 'PARTICL',
+        'currency': 'GHOST',
         'basePrice': 2,
         'paymentInformationId': 8,
         'cryptocurrencyAddressId': null,

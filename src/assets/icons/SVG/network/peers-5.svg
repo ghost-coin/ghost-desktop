@@ -56,7 +56,7 @@
        width="2"
        height="3"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect1498" />
     <rect
        x="812"
@@ -64,7 +64,7 @@
        width="2"
        height="5"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect1500" />
     <rect
        x="816"
@@ -72,7 +72,7 @@
        width="2"
        height="7"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect1502" />
     <rect
        x="820"
@@ -80,7 +80,7 @@
        width="2"
        height="9"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect1504" />
     <rect
        x="824"
@@ -88,7 +88,7 @@
        width="2"
        height="11"
        transform="matrix(1,0,0,1,0,0)"
-       fill="rgb(3,232,176)"
+       fill="rgb(6,90,138)"
        id="rect1506" />
     <rect
        x="828"

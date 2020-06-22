@@ -304,7 +304,7 @@ export class AddItemComponent implements OnInit, OnDestroy {
       item.longDescription,
       item.category,
       'SALE',
-      'PARTICL',
+      'GHOST',
       +item.basePrice,
       +item.domesticShippingPrice,
       +item.internationalShippingPrice

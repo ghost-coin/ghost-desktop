@@ -13,7 +13,7 @@ if (isEmptyObject(_options)) {
   _options = _processOpts.parse();
 }
 
-const conFilePath = path.join( cookie.getParticlPath(_options), 'particl.conf');
+const conFilePath = path.join( cookie.getGhostPath(_options), 'ghost.conf');
 const IPC_CHANNEL_PUB = 'rpc-configuration';
 const IPC_CHANNEL_LISTEN = 'request-configuration';
 
@@ -88,14 +88,14 @@ const formatSettingsOutput = function(rawConfig) {
 }
 
 const readConfigFile = function () {
-  log.debug('Attempting to read particld config from: ', conFilePath);
+  log.debug('Attempting to read ghostd config from: ', conFilePath);
   if (fs.existsSync(conFilePath)) {
     try {
       const p = new iniParser();
       const result = p.parse(fs.readFileSync(conFilePath, 'utf-8'));
       return deepClone(result);
     } catch (err) {
-      log.error(`particld config file parsing failed from ${conFilePath}`);
+      log.error(`ghostd config file parsing failed from ${conFilePath}`);
       log.error(`parsing error: ${err.message}`);
     }
   }
@@ -222,7 +222,7 @@ const saveSettings = function(networkOpt) {
           if (error) {
             log.error(`Failed updating ${conFilePath}`, err.stack);
           } else {
-            log.info('Successfully set particld configuration at', conFilePath);
+            log.info('Successfully set ghostd configuration at', conFilePath);
           }
         });
       }

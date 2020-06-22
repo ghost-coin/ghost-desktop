@@ -202,7 +202,7 @@ const listingGet = {
     },
     'ItemPrice': {
       'id': 1,
-      'currency': 'PARTICL',
+      'currency': 'GHOST',
       'basePrice': 0.25,
       'paymentInformationId': 1,
       'cryptocurrencyAddressId': null,

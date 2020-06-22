@@ -103,7 +103,7 @@ export class SendService {
     // Truncate the address to 16 characters only
     const trimAddress = address.substring(0, 16) + '...';
     const displayAmount = (new Amount(amount)).getAmountAsString();
-    this.flashNotification.open(`Successfully sent ${displayAmount} PART to ${trimAddress}`, 'warn');
+    this.flashNotification.open(`Successfully sent ${displayAmount} GHOST to ${trimAddress}`, 'warn');
   }
 
   private rpc_send_failed(message: string, address?: string, amount?: number) {

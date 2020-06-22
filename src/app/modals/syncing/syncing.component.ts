@@ -65,7 +65,7 @@ export class SyncingComponent implements OnDestroy {
   closeOnceHackishly() {
     if (!this.alreadyClosedOnce) {
         // BUG: this constructor is on a loop when we're syncing?
-        // run particld with -reindex flag to trigger the bug
+        // run ghostd with -reindex flag to trigger the bug
         this.log.d(`syncPercentage is 100%, closing automatically!`);
         this.close();
         this.alreadyClosedOnce = true;

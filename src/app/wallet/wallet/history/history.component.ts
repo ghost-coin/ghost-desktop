@@ -33,9 +33,9 @@ export class HistoryComponent implements OnInit {
 
   types: Array<any> = [
     { title: 'All types', value: 'all'      },
-    { title: 'Public',  value: 'standard'   },
-    { title: 'Blind',     value: 'blind'    },
     { title: 'Anonymous', value: 'anon'     },
+    { title: 'Blind',     value: 'blind'    },
+    { title: 'Public',  value: 'standard'   },
   ];
 
   filters: any = {

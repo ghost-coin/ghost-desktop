@@ -23,7 +23,7 @@ export class PaymentService {
         'update',
         templateId,
         'SALE',
-        'PARTICL',
+        'GHOST',
         basePrice,
         domesticPrice,
         internationalPrice,

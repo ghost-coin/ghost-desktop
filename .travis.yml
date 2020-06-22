@@ -32,7 +32,7 @@ before_script:
   - echo $TRUE_COMMIT_MESSAGES
 
   - yarn install
-  - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/particl/particl-market; fi;
+  - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/ghost-coin/ghost-market; fi;
 
 script:
   - echo 'Build Dist' && echo -en 'travis_fold:start:script.build\\r'

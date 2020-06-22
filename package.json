@@ -1,12 +1,13 @@
 {
-  "name": "particl-desktop",
-  "version": "2.0.0-alpha-testnet",
-  "branch": "market",
+  "name": "ghost-desktop",
+  "version": "2.0.0-alpha",
+  "branch": "master",
   "license": "GPL-2.0",
-  "description": "Particl Desktop - decentralized marketplace, private currency, messaging & self-governance",
-  "homepage": "https://particl.io",
+  "description": "Ghost Desktop -  private currency, messaging & self-governance",
+  "homepage": "https://www.ghostbymcafee.com/",
   "keywords": [
-    "particl",
+    "ghost",
+    "mcafee",
     "angular2",
     "angular4",
     "angular-cli",
@@ -14,7 +15,7 @@
     "webpack",
     "typescript"
   ],
-  "author": "Particl contributors",
+  "author": "Ghost contributors",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -34,8 +35,10 @@
     "package:mac": "yarn run build:electron:prod && electron-builder -m && yarn run checksum",
     "package:linux": "yarn run build:electron:prod && electron-builder -l && yarn run checksum",
     "package:win": "yarn run build:electron:prod && electron-builder --win --x64 && yarn run checksum",
+    "package:win:test": "yarn run build:electron && electron-builder --win --x64 && yarn run checksum",
     "package:win32": "yarn run build:electron:prod && electron-builder --win --ia32 && yarn run checksum",
     "package": "yarn run build:electron:prod && electron-builder -ml && electron-builder --win --x64 && yarn run checksum",
+    "package:test": "yarn run build:electron:prod && electron-builder -ml && electron-builder --win --x64 && yarn run checksum",
     "coveralls": "cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js",
     "compodoc": "compodoc -p tsconfig.json -d docs",
     "generate-release": "node ./modules/clientBinaries/generateVersions.js",
@@ -46,10 +49,10 @@
     "travis:test": "ng test --watch=false --code-coverage",
     "start": "yarn run start:electron:fast"
   },
-  "productName": "Particl Desktop Testnet",
+  "productName": "Ghost Desktop Testnet",
   "build": {
     "electronVersion": "4.0.3",
-    "appId": "io.particl.desktop",
+    "appId": "com.ghostbymcafee.desktop",
     "npmRebuild": true,
     "directories": {
       "buildResources": "resources",
@@ -114,11 +117,11 @@
       "uninstallerIcon": "resources/icon.ico",
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "menuCategory": "Particl Desktop Testnet",
+      "menuCategory": "Ghost Desktop",
       "runAfterFinish": true
     },
     "linux": {
-      "maintainer": "particl contributors <hello@particl.io>",
+      "maintainer": "ghost contributors <hello@ghostbymcafee.com>",
       "artifactName": "${name}-${version}-${os}-${arch}.${ext}",
       "target": [
         {
@@ -140,11 +143,11 @@
           ]
         }
       ],
-      "executableName": "Particl Desktop",
+      "executableName": "Ghost Desktop",
       "desktop": {
-        "Comment": "Particl, P2P Privacy ecosystem",
-        "Icon": "particl-desktop",
-        "Name": "Particl Desktop Testnet",
+        "Comment": "Ghost, P2P Privacy ecosystem",
+        "Icon": "ghost-desktop",
+        "Name": "Ghost Desktop",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",

@@ -130,7 +130,7 @@ export class RevertColdstakingComponent implements OnInit {
         if (++sentTXs === this.utxos.txs.length) {
           this.dialogRef.close();
           this.flashNotification.open(
-            `Succesfully brought ${amount} PART into hot wallet`, 'warn');
+            `Succesfully brought ${amount} GHOST into hot wallet`, 'warn');
         }
       });
     });

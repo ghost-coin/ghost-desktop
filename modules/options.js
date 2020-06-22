@@ -7,7 +7,7 @@ let _options = {};
 **
 ** exemple:
 ** --dev -testnet -reindex -rpcuser=user -rpcpassword=pass
-** strips --dev out of argv (double dash is not a particld argument) and returns
+** strips --dev out of argv (double dash is not a ghostd argument) and returns
 ** {
 **   dev: true,
 **   testnet: true,
@@ -30,7 +30,7 @@ exports.parse = function() {
   if (process.argv[0].match(/[Ee]lectron/)) {
     process.argv = process.argv.splice(2); /* striping 'electron .' from argv */
   } else {
-    process.argv = process.argv.splice(1); /* striping /path/to/particl from argv */
+    process.argv = process.argv.splice(1); /* striping /path/to/ghost from argv */
   }
 
   // make a copy of process.argv, because we'll be changing it
@@ -43,7 +43,7 @@ exports.parse = function() {
     arg = arg.substr(nDashes);
 
     if (nDashes === 2) { /* double-dash: desktop-only argument */
-      // delete param, so it doesn't get passed to particl-core
+      // delete param, so it doesn't get passed to ghost-core
       process.argv.splice(argIndex, 1);
       let verboseLevel = isVerboseLevel(arg);
       if (verboseLevel) {
@@ -53,7 +53,7 @@ exports.parse = function() {
     } else if (nDashes === 1) { /* single-dash: core argument */
 
       // MacOS / OSX likes to add a Process Serial Numbers
-      // filter it out before being passed to particl-core.
+      // filter it out before being passed to ghost-core.
       if (arg.startsWith("psn_")) {
         process.argv.splice(argIndex, 1);
       }
@@ -71,8 +71,8 @@ exports.parse = function() {
   options.port = options.rpcport
     ? options.rpcport // custom rpc port
     : options.testnet
-      ? 51935  // default testnet port
-      : 51735; // default mainnet port
+      ? 51925  // default testnet port
+      : 51725; // default mainnet port
   console.log('port=' + options.port);
   _options = options;
   return options;

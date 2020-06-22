@@ -9,7 +9,7 @@
       <mat-tab-group>
         <mat-tab label="Sign Message" *ngIf="type === 'sign'">
           <p>
-            You can sign messages/agreements with your address to prove you can receive Particl sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.
+            You can sign messages/agreements with your address to prove you can receive Ghost sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.
           </p>
         </mat-tab>
         <mat-tab label="Verify Message" *ngIf="type === 'verify'">
@@ -25,7 +25,7 @@
           <mat-form-field fxFlex="1 1 100%">
             <input matInput formControlName="address" [(ngModel)]="formData.address" #addressInput
                    [ngClass]="{'verify-sucess': validAddress === true, 'verify-error': validAddress === false }"
-                   placeholder="Enter a Particl address (e.g. PuMnFoGouqFkFZ1rs2PmVDUqp9psfQssre)"
+                   placeholder="Enter a Ghost address (e.g. PuMnFoGouqFkFZ1rs2PmVDUqp9psfQssre)"
                    (input)="verifyAddress()">
           </mat-form-field>
 

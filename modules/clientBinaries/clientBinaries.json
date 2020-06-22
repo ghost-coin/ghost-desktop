@@ -1,87 +1,25 @@
 {
   "clients": {
-    "particld": {
-      "version": "0.19.1.1",
+    "ghostd": {
+      "version": "0.19.1.2",
       "platforms": {
-        "linux": {
-          "arm": {
-            "download": {
-              "url": "https://github.com/particl/particl-core/releases/download/v0.19.1.1/particl-0.19.1.1-arm-linux-gnueabihf.tar.gz",
-              "type": "tar",
-              "sha256": "559998ce72c0888a0a1c0bf5a23a60fbe53c5a8f930704e8f15b32d7358ce49c",
-              "bin": "particl-0.19.1.1/bin/particld"
-            },
-            "bin": "particld",
-            "commands": {
-              "sanity": {
-                "args": [
-                  "-version"
-                ],
-                "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
-                ]
-              }
-            }
-          },
-          "ia32": {
-            "download": {
-              "url": "https://github.com/particl/particl-core/releases/download/v0.19.1.1/particl-0.19.1.1-i686-pc-linux-gnu_nousb.tar.gz",
-              "type": "tar",
-              "sha256": "99842b8da6b3bfd6d59539190e1cca43faa41dac082621c65e0c4b849147568a",
-              "bin": "particl-0.19.1.1/bin/particld"
-            },
-            "bin": "particld",
-            "commands": {
-              "sanity": {
-                "args": [
-                  "-version"
-                ],
-                "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
-                ]
-              }
-            }
-          },
-          "x64": {
-            "download": {
-              "url": "https://github.com/particl/particl-core/releases/download/v0.19.1.1/particl-0.19.1.1-x86_64-linux-gnu_nousb.tar.gz",
-              "type": "tar",
-              "sha256": "595d066cfa70e43b924659e77981a66e9aaf5925cd4e3205514dd1e2e8f4cb44",
-              "bin": "particl-0.19.1.1/bin/particld"
-            },
-            "bin": "particld",
-            "commands": {
-              "sanity": {
-                "args": [
-                  "-version"
-                ],
-                "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
-                ]
-              }
-            }
-          }
-        },
         "mac": {
           "x64": {
             "download": {
-              "url": "https://github.com/particl/particl-core/releases/download/v0.19.1.1/particl-0.19.1.1-osx64.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.2/ghost-0.19.1.2-osx64.tar.gz",
               "type": "tar",
-              "sha256": "5767a95c65fee6dca606b40beee6826bc85ae85651bd244daa82e97a9f4b8e94",
-              "bin": "particl-0.19.1.1/bin/particld"
+              "sha256": "3b5bd6b4d142af79cb9e464a25c6f53f47e859f37934faac5392387def74028b",
+              "bin": "ghost-0.19.1.2/bin/ghostd"
             },
-            "bin": "particld",
+            "bin": "ghostd",
             "commands": {
               "sanity": {
                 "args": [
                   "-version"
                 ],
                 "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
+                  "Ghost Core version",
+                  "0.19.1.2"
                 ]
               }
             }
@@ -90,20 +28,20 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/particl/particl-core/releases/download/v0.19.1.1/particl-0.19.1.1-win64.zip",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.2/ghost-0.19.1.2-win64.zip",
               "type": "zip",
-              "sha256": "5f781aa94db528990ea30d1b3c7a9bf60618e51988254b88e483f31530514664",
-              "bin": "particl-0.19.1.1/bin/particld.exe"
+              "sha256": "269225dc119cb2e6633e95d7d3f0d937491adec58b556aec6b090073d0eeaf54",
+              "bin": "ghost-0.19.1.2/bin/ghostd.exe"
             },
-            "bin": "particld.exe",
+            "bin": "ghostd.exe",
             "commands": {
               "sanity": {
                 "args": [
                   "-version"
                 ],
                 "output": [
-                  "Particl Core version",
-                  "0.19.1.1"
+                  "Ghost Core version",
+                  "0.19.1.2"
                 ]
               }
             }

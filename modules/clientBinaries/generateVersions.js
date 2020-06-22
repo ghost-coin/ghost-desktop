@@ -1,9 +1,9 @@
 var got = require("got");
 var fs = require('fs');
 
-var releasesURL = "https://api.github.com/repos/particl/particl-core/releases";
-var signaturesURL = "https://api.github.com/repos/particl/gitian.sigs/contents";
-var maintainer = "tecnovert";
+var releasesURL = "https://api.github.com/repos/ghost-coin/ghost-core/releases";
+var signaturesURL = "https://api.github.com/repos/ghost-coin/gitian.sigs/contents";
+var maintainer = "Ghost";
 
 /*
  * Filters a hash file to find this asset's hash
@@ -81,7 +81,7 @@ var getAssetDetails = function (asset, hashes, version) {
   }
 
   // add .exe extension for windows binaries
-  let bin = `particld${data.platform === 'win' ? '.exe' : ''}`
+  let bin = `ghostd${data.platform === 'win' ? '.exe' : ''}`
 
   // return asset only if it is fully compliant
   return (data.platform && data.arch && data.type ? {
@@ -93,13 +93,13 @@ var getAssetDetails = function (asset, hashes, version) {
         url: asset.browser_download_url,
         type: data.type,
         sha256: data.sha256,
-        bin: `particl-${version}/bin/${bin}`
+        bin: `ghost-${version}/bin/${bin}`
       },
       bin: bin,
       commands: {
         sanity: {
           args: ["-version"],
-          output: ["Particl Core version", version]
+          output: ["Ghost Core version", version]
         }
       }
     }
@@ -135,7 +135,7 @@ var getHashesForPlatform = function (platform, path, hashes) {
 
 /*
  * Entry point
- * get Particl latest release files
+ * get Ghost latest release files
  */
 got(`${releasesURL}`).then(response => {
   const body = JSON.parse(response.body);
@@ -174,7 +174,7 @@ got(`${releasesURL}`).then(response => {
       // prepare JSON object for the output file
       var json = {
         clients: {
-          particld: {
+          ghostd: {
             version: tag,
             platforms: {}
           }
@@ -189,7 +189,7 @@ got(`${releasesURL}`).then(response => {
       })
 
       // include entries in JSON object
-      var platforms = json.clients.particld.platforms;
+      var platforms = json.clients.ghostd.platforms;
       binaries.forEach(binary => {
         // define an empty object for current platform if not already defined
         if (!platforms[binary.platform]) {

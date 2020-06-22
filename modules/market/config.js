@@ -1,3 +1,5 @@
 module.exports = {
-  allowedWallets: ["Market"]
+ // allowedWallets: ["Market"]
+ // TODO: Uncomment to enable market
+ allowedWallets: []
 }
