@@ -1,7 +1,7 @@
 {
   "name": "ghost-desktop",
-  "version": "2.0.0-alpha-testnet",
-  "branch": "market",
+  "version": "2.0.0-alpha",
+  "branch": "master",
   "license": "GPL-2.0",
   "description": "Ghost Desktop -  private currency, messaging & self-governance",
   "homepage": "https://www.ghostbymcafee.com/",
@@ -117,7 +117,7 @@
       "uninstallerIcon": "resources/icon.ico",
       "createDesktopShortcut": "always",
       "createStartMenuShortcut": true,
-      "menuCategory": "Ghost Desktop Testnet",
+      "menuCategory": "Ghost Desktop",
       "runAfterFinish": true
     },
     "linux": {
@@ -147,7 +147,7 @@
       "desktop": {
         "Comment": "Ghost, P2P Privacy ecosystem",
         "Icon": "ghost-desktop",
-        "Name": "Ghost Desktop Testnet",
+        "Name": "Ghost Desktop",
         "StartupNotify": "true",
         "Terminal": "false",
         "Type": "Application",
