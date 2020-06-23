@@ -6,7 +6,6 @@ We provide a decentralized privacy platform with a suite of tools to enhance you
 
 * **An anonymous cryptocurrency** – send and receive the GHOST cryptocurrency without revealing the transaction history
 * **End-to-end encrypted messaging** – communicate in a secure and decentralized manner without revealing your IP address
-* **A private marketplace** – buy and sell goods without leaving a trace
 
 This repository is the user interface that works in combination with our [`ghost-core`](https://github.com/ghost-coin/ghost-core).
 

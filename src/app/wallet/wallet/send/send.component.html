@@ -71,8 +71,8 @@
                           matTooltip="It is normal to have a very small balance in Blind even after transferring out everything. This is due to the way CT works and part of the privacy platform."></mat-icon>
               </div>
             </mat-radio-button>
-            <mat-radio-button class="balance" value="part" checked="checked" [color]="type === 'sendPayment' ? 'warn' : 'primary'"
-                              (change)="setInputOutput('part', 'output')" fxFlex >
+            <mat-radio-button class="balance" value="ghost" checked="checked" [color]="type === 'sendPayment' ? 'warn' : 'primary'"
+                              (change)="setInputOutput('ghost', 'output')" fxFlex >
               <div class="name">Public</div>
               <div class="desc">Available balance:<span class="amount">{{ balanceDisplay(TxType.PUBLIC) }}</span></div>
             </mat-radio-button>
@@ -159,7 +159,7 @@
               <div class="name">Anon</div>
               <div class="desc">Available balance:<span class="amount">{{ balanceDisplay(TxType.ANON) }}</span></div>
             </mat-radio-button>
-            <mat-radio-button class="balance" value="part" color="primary" (change)="setInputOutput('part', 'input')" checked="checked" fxFlex [disabled]="send.input === TxType.PUBLIC">
+            <mat-radio-button class="balance" value="ghost" color="primary" (change)="setInputOutput('ghost', 'input')" checked="checked" fxFlex [disabled]="send.input === TxType.PUBLIC">
               <div class="name">Public</div>
               <div class="desc">Available balance:<span class="amount">{{ balanceDisplay(TxType.PUBLIC) }}</span></div>
             </mat-radio-button>
@@ -243,7 +243,7 @@
           <!-- Choose currency -->
           <mat-select class="underlining-select" fxFlex="0 0 70px" name="currency" [(ngModel)]="send.currency"
                       placeholder="Currency">
-            <mat-option value="part">GHOST</mat-option>
+            <mat-option value="ghost">GHOST</mat-option>
           </mat-select>
           <!-- Send buttons -->
           <div class="actions" fxFlex="1 1 100%">
