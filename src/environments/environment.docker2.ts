@@ -6,7 +6,7 @@ export const environment = {
   version: require('../../package.json').version,
   envName: 'docker2',
   ghostHost: 'localhost',
-  ghostPort: 53925,
+  ghostPort: 51728,
   marketVersion: 'UNKNOWN',
   marketHost: 'localhost',
   marketPort: 3200,
