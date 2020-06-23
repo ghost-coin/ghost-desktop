@@ -1,15 +1,15 @@
 {
   "clients": {
     "ghostd": {
-      "version": "0.19.1.2",
+      "version": "0.19.1.3",
       "platforms": {
-        "mac": {
-          "x64": {
+        "linux": {
+          "arm": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.2/ghost-0.19.1.2-osx64.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.3/ghost-0.19.1.3-arm-linux-gnueabihf.tar.gz",
               "type": "tar",
-              "sha256": "3b5bd6b4d142af79cb9e464a25c6f53f47e859f37934faac5392387def74028b",
-              "bin": "ghost-0.19.1.2/bin/ghostd"
+              "sha256": "8a2dec40548b258f9d41b04e0390afd588f01093785c98b6ac28616c048d798f",
+              "bin": "ghost-0.19.1.3/bin/ghostd"
             },
             "bin": "ghostd",
             "commands": {
@@ -19,7 +19,69 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.2"
+                  "0.19.1.3"
+                ]
+              }
+            }
+          },
+          "ia32": {
+            "download": {
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.3/ghost-0.19.1.3-i686-pc-linux-gnu_nousb.tar.gz",
+              "type": "tar",
+              "sha256": "26d9b68422ccd6f746c3fc73e12dbbd34654ca1005adaefb964021d2f74779df",
+              "bin": "ghost-0.19.1.3/bin/ghostd"
+            },
+            "bin": "ghostd",
+            "commands": {
+              "sanity": {
+                "args": [
+                  "-version"
+                ],
+                "output": [
+                  "Ghost Core version",
+                  "0.19.1.3"
+                ]
+              }
+            }
+          },
+          "x64": {
+            "download": {
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.3/ghost-0.19.1.3-x86_64-linux-gnu_nousb.tar.gz",
+              "type": "tar",
+              "sha256": "ac1a8917da6b647744af0a4c29c5b0375348428a28366f54d3874a1fc6cdf988",
+              "bin": "ghost-0.19.1.3/bin/ghostd"
+            },
+            "bin": "ghostd",
+            "commands": {
+              "sanity": {
+                "args": [
+                  "-version"
+                ],
+                "output": [
+                  "Ghost Core version",
+                  "0.19.1.3"
+                ]
+              }
+            }
+          }
+        },
+        "mac": {
+          "x64": {
+            "download": {
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.3/ghost-0.19.1.3-osx64.tar.gz",
+              "type": "tar",
+              "sha256": "4eabb031784fe1550c763a6dc1b635533dd7e09132b91676f2ca4ac56d079747",
+              "bin": "ghost-0.19.1.3/bin/ghostd"
+            },
+            "bin": "ghostd",
+            "commands": {
+              "sanity": {
+                "args": [
+                  "-version"
+                ],
+                "output": [
+                  "Ghost Core version",
+                  "0.19.1.3"
                 ]
               }
             }
@@ -28,10 +90,10 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.2/ghost-0.19.1.2-win64.zip",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.3/ghost-0.19.1.3-win64.zip",
               "type": "zip",
-              "sha256": "269225dc119cb2e6633e95d7d3f0d937491adec58b556aec6b090073d0eeaf54",
-              "bin": "ghost-0.19.1.2/bin/ghostd.exe"
+              "sha256": "bed5420c9a46f5f07188aab66c8c7823d664caf01c666f2c55d7ec666f4f08b7",
+              "bin": "ghost-0.19.1.3/bin/ghostd.exe"
             },
             "bin": "ghostd.exe",
             "commands": {
@@ -41,7 +103,7 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.2"
+                  "0.19.1.3"
                 ]
               }
             }
