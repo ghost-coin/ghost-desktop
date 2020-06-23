@@ -8,7 +8,7 @@ export const environment = {
 //  marketVersion: require('../../node_modules/ghost-marketplace/package.json').version,
   marketVersion: 'UNKNOWN',
   ghostHost: 'localhost',
-  ghostPort: 51728,
+  ghostPort: 51725,
   marketHost: 'localhost',
   marketPort: 3000,
   isTesting: false

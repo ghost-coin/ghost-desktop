@@ -16,7 +16,8 @@ let whitelist = new Map();
 
 exports.init = function () {
     loadDev();
-    loadMarketAuthentication();
+  // TODO: Enable when launch market
+  // loadMarketAuthentication();
     loadWalletAuthentication();
     loadGithub();
 
