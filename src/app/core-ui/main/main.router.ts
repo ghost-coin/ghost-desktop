@@ -157,7 +157,7 @@ export class MainRouterComponent implements OnInit, OnDestroy {
     });
 
     // TODO - find better location to perform this check...
-    if (isMainnetRelease() && isPrerelease()) {
+    /*if (isMainnetRelease() && isPrerelease()) {
       const alphaMessage = {
         text: 'The Ghost Marketplace alpha is still in development and not 100% private yet - use it at your own risk!',
         dismissable: false,
@@ -167,7 +167,7 @@ export class MainRouterComponent implements OnInit, OnDestroy {
         actionLabel: 'Click here to read all the details first!'
       } as UserMessage;
       this.messagesService.addMessage(alphaMessage);
-    }
+    }*/
 
   }
 
