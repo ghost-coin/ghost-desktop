@@ -49,7 +49,7 @@
     "travis:test": "ng test --watch=false --code-coverage",
     "start": "yarn run start:electron:fast"
   },
-  "productName": "Ghost Desktop Testnet",
+  "productName": "Ghost Desktop",
   "build": {
     "electronVersion": "4.0.3",
     "appId": "com.ghostbymcafee.desktop",
