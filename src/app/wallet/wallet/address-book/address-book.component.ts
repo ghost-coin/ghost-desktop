@@ -50,10 +50,10 @@ export class AddressBookComponent {
   filterType(event: MatSelectChange): void {
     switch (event && event.value) {
       case 'public':
-        this.filter = /^[pPrR25][a-km-zA-HJ-NP-Z1-9]{25,52}$/;
+        this.filter = /^[gG][a-km-zA-HJ-NP-Z1-9]{25,52}$/;
         break;
       case 'private':
-        this.filter = /^[Tt][a-km-zA-HJ-NP-Z1-9]{60,}$/;
+        this.filter = /^[Ss][a-km-zA-HJ-NP-Z1-9]{60,}$/;
         break;
       default: this.filter = undefined;
     }
