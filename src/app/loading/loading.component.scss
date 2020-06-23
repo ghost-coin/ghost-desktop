@@ -6,6 +6,7 @@ body {
 
 .loading-wrapper {
   background: #232323;
+  height: 100%;
   color: $bg;
   text-align: center;
   font-family: $font;
@@ -15,9 +16,9 @@ body {
   left: 0;
   right: 0;
   .logo {
-    width: 300px;
+    width: 150px;
     height: auto;
-    margin: 210px 0 60px;
+    margin: 70px 0 60px;
   }
   .loader {
     color: $color;
