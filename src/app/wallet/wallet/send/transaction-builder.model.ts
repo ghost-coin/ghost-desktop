@@ -1,5 +1,5 @@
 export enum TxType {
-  PUBLIC = 'part',
+  PUBLIC = 'ghost',
   BLIND = 'blind',
   ANON = 'anon'
 }
