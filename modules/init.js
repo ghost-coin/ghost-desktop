@@ -97,7 +97,7 @@ const sleep = (ms) => {
 };
 
 electron.app.on('before-quit', async function beforeQuit(event) {
-  log.info('received quit signal, cleaning up...');awa
+  log.info('received quit signal, cleaning up...');
 
   event.preventDefault();
   electron.app.removeListener('before-quit', beforeQuit);
@@ -110,6 +110,7 @@ electron.app.on('before-quit', async function beforeQuit(event) {
   closeGui.destroy();
 
   daemonManager.shutdown();
+  //await sleep(2000)
   await daemon.stop().catch(() => {
     // Shutting down now, so a rejection or error should not stop the rest of the app shutting down, ie: do nothing
   })
