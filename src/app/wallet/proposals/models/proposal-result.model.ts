@@ -51,10 +51,10 @@ export class ProposalResult {
     return new Amount(perWeight, 2).getAmount();
   }
 
-  // Converting the satishi to part coin
+  // Converting the satishi to ghost coin
   private  getPartCoins(weight: number): Amount {
-    const part = (weight) / 100000000;
-    return (new Amount(part, 4));
+    const ghost = (weight) / 100000000;
+    return (new Amount(ghost, 4));
   }
 
   get graphData(): GraphOption[] {

@@ -18,7 +18,7 @@ describe('ConsoleModalComponent', () => {
     'help',
     'getaddressbalance rSoZtLcT1RySGgVKFchkwBXowFjJzufScc',
     'walletpassphrase "passphrase" 9999',
-    'sendtypeto "part" "blind" [{ address: "rSoZtLcT1RySGgVKFchkwBXowFjJzufScc" }]',
+    'sendtypeto "ghost" "blind" [{ address: "rSoZtLcT1RySGgVKFchkwBXowFjJzufScc" }]',
     'somecommand [ test1,  test2]',
     'somecommand { test1: "testests",  testes2 : "testest1232"}'
   ]

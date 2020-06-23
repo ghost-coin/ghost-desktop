@@ -104,7 +104,7 @@ export class ZapColdstakingComponent {
           const amount = new Amount(this.utxos.amount, 8);
           this.log.d('amount', amount.getAmount());
 
-          this._rpc.call('sendtypeto', ['part', 'part', [{
+          this._rpc.call('sendtypeto', ['ghost', 'ghost', [{
             subfee: true,
             address: 'script',
             amount: amount.getAmount(),
@@ -128,7 +128,7 @@ export class ZapColdstakingComponent {
     this.log.d('zap tx', this.utxos.amount, this.script, this.utxos.txs);
 
     const amount = new Amount(this.utxos.amount, 8);
-    this._rpc.call('sendtypeto', ['part', 'part', [{
+    this._rpc.call('sendtypeto', ['ghost', 'ghost', [{
       subfee: true,
       address: 'script',
       amount: amount.getAmount(),
