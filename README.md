@@ -1,7 +1,5 @@
 # ghost-desktop – UI
 
-![UI Preview](preview.gif)
-
 > *"GHOST is a Proof of Stake privacy coin to help make you nothing but a "ghost" when transacting online!"*
 
 We provide a decentralized privacy platform with a suite of tools to enhance your online privacy:
