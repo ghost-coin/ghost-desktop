@@ -40,11 +40,11 @@ export class LoadingComponent implements OnInit {
   ngOnInit() {
     this.log.i('Loading component booted!');
 
-    /* Daemon download 
+    /* Daemon download */
     this.updater.status.asObservable().subscribe(status => {
       this.log.d(`updating statusMessage: `, status);
       this.loadingMessage = status;
-    });  */ 
+    });
 
     // we wait until the multiwallet has retrieved the wallets
     this.multi.list.pipe(take(1)).subscribe(wallets => {
