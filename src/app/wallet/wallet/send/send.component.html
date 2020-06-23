@@ -71,7 +71,7 @@
                           matTooltip="It is normal to have a very small balance in Blind even after transferring out everything. This is due to the way CT works and part of the privacy platform."></mat-icon>
               </div>
             </mat-radio-button>
-            <mat-radio-button class="balance" value="part" checked="checked" color="warn"
+            <mat-radio-button class="balance" value="part" checked="checked" [color]="type === 'sendPayment' ? 'warn' : 'primary'"
                               (change)="setInputOutput('part', 'output')" fxFlex >
               <div class="name">Public</div>
               <div class="desc">Available balance:<span class="amount">{{ balanceDisplay(TxType.PUBLIC) }}</span></div>
@@ -79,7 +79,7 @@
           </mat-radio-group><!-- .from-balance-type -->
 
           <!-- TX info help -->
-          <p class="warning" *ngIf="send.input === TxType.PUBLIC">
+          <p [ngClass]="{'warning': send.input === TxType.PUBLIC && type === 'sendPayment', 'widget-help':send.input === TxType.PUBLIC && type === 'balanceTransfer'}" class="warning" *ngIf="send.input === TxType.PUBLIC">
             In public transactions, everything is visible on the blockchain &ndash; transaction amount, sender and receiver addresses.
           </p>
           <p class="widget-help" *ngIf="send.input === TxType.BLIND">
