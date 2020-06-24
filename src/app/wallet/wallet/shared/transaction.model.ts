@@ -49,11 +49,7 @@ export class Transaction {
       this.address = json.outputs[0].address;
       this.stealth_address = json.outputs[0].stealth_address;
       this.label = json.outputs[0].label;
-      if (json.outputs[0].type) {
-        this.type_output = json.outputs[0].type;
-      } else {
-        this.type_output = 'standard';
-      }
+      json.outputs[0].type ? this.type_output = json.outputs[0].type : this.type_output = 'standard';
     }
     this.category = json.category;
     this.amount = json.amount;
@@ -74,13 +70,7 @@ export class Transaction {
     this.blockindex = json.blockindex;
     this.blocktime = json.blocktime;
     this.confirmations = json.confirmations;
-    if (json.type_in) {
-      this.type_in = json.type_in;
-    } else {
-      this.type_in = 'standard';
-    }
-
-
+    json.type_in ?  this.type_in = json.type_in :  this.type_in = 'standard';
   }
 
   public getAddress(): string {
