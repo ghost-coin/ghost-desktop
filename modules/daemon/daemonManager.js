@@ -17,7 +17,7 @@ const rpc = require('../rpc/rpc');
 
 // dev
 // const BINARY_URL = 'https://raw.githubusercontent.com/ghost-coin/ghost-desktop/develop/modules/clientBinaries/clientBinaries.json';
-const branchName = (branch || 'develop').replace('-', '/');
+const branchName = (branch || 'develop');
 const BINARY_URL = `https://raw.githubusercontent.com/ghost-coin/ghost-desktop/${branchName}/modules/clientBinaries/clientBinaries.json`;
 
 //const ALLOWED_DOWNLOAD_URLS_REGEX = new RegExp('*', 'i');

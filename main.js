@@ -25,6 +25,7 @@ const daemonConfig = require('./modules/daemon/daemonConfig');
 const log     = require('./modules/logger').init();
 const init    = require('./modules/init');
 const _auth = require('./modules/webrequest/http-auth');
+const closeWindow = require('./closeWindow');
 
 daemonConfig.deleteAuthFile();
 const options = daemonConfig.getConfiguration();
@@ -162,6 +163,7 @@ function initMainWindow() {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
+    closeWindow.initCloseWindow();
     mainWindow = null
   });
 }
