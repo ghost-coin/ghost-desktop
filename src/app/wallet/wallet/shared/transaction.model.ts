@@ -39,8 +39,8 @@ export class Transaction {
     blockindex: number;
     blocktime: number;
     confirmations: number;
-    type_in?: 'anon' | 'blind' | 'standard';
-    type_output?: 'anon' | 'blind' | 'standard';
+    type_in?: 'anon' | 'blind' | 'standard' = null;
+    type_output?: 'anon' | 'blind' | 'standard' = null;
 
   constructor(json: any) {
     /* transactions */
@@ -49,8 +49,10 @@ export class Transaction {
       this.address = json.outputs[0].address;
       this.stealth_address = json.outputs[0].stealth_address;
       this.label = json.outputs[0].label;
-      if(json.outputs[0].type){
+      if (json.outputs[0].type) {
         this.type_output = json.outputs[0].type;
+      } else {
+        this.type_output = 'standard';
       }
     }
     this.category = json.category;
@@ -74,6 +76,8 @@ export class Transaction {
     this.confirmations = json.confirmations;
     if (json.type_in) {
       this.type_in = json.type_in;
+    } else {
+      this.type_in = 'standard';
     }
 
 
@@ -145,7 +149,9 @@ export class Transaction {
       const add = function (a: any, b: any) { return a + (b.vout === 65535 ? 0 : b.amount); }
       return this.outputs.reduce(add, 0);
       */
-
+      if (this.type_in === 'standard') {
+        return this.amount;
+      }
 
       const blindStealthOutputCount = this.outputs.reduce(function (a: any, b: any) {
         return a + (b.vout !== 65535 ? (b.stealth_address !== undefined ? 1 : 0) : 0);
