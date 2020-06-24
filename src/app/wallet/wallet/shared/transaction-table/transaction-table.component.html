@@ -67,7 +67,12 @@
           </span>
           <span *ngSwitchCase="'internal_transfer'" class="tx-type received">
             <mat-icon fontSet="partIcon" fontIcon="part-transfer" color="primary"></mat-icon>
-            <span class="name">Balance transfer</span>
+            <span *ngIf="tx.type_in == 'anon' && tx.type_output == 'standard' " class="name">ANON --> PUBLIC</span>
+            <span *ngIf="tx.type_in == 'standard' && tx.type_output == 'anon' " class="name">PUBLIC --> ANON</span>
+            <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'standard' " class="name">BLIND --> PUBLIC</span>
+            <span *ngIf="tx.type_in == 'standard' && tx.type_output == 'blind' " class="name">PUBLIC --> BLIND</span>
+            <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'anon' " class="name">BLIND --> ANON</span>
+            <span *ngIf="tx.type_in == 'anon' && tx.type_output == 'blind' " class="name">ANON --> BLIND</span>
           </span>
           <span *ngSwitchCase="'listing_fee'" class="tx-type listing-fee">
             <mat-icon fontSet="partIcon" fontIcon="part-bag-buy"></mat-icon>

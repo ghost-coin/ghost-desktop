@@ -39,6 +39,8 @@ export class Transaction {
     blockindex: number;
     blocktime: number;
     confirmations: number;
+    type_in?: 'anon' | 'blind' | 'standard';
+    type_output?: 'anon' | 'blind' | 'standard';
 
   constructor(json: any) {
     /* transactions */
@@ -47,6 +49,9 @@ export class Transaction {
       this.address = json.outputs[0].address;
       this.stealth_address = json.outputs[0].stealth_address;
       this.label = json.outputs[0].label;
+      if(json.outputs[0].type){
+        this.type_output = json.outputs[0].type;
+      }
     }
     this.category = json.category;
     this.amount = json.amount;
@@ -67,6 +72,11 @@ export class Transaction {
     this.blockindex = json.blockindex;
     this.blocktime = json.blocktime;
     this.confirmations = json.confirmations;
+    if (json.type_in) {
+      this.type_in = json.type_in;
+    }
+
+
   }
 
   public getAddress(): string {
@@ -74,6 +84,14 @@ export class Transaction {
       return this.address;
     }
     return this.stealth_address;
+  }
+
+  public getTypeIn(): string {
+    return this.type_in || '';
+  }
+
+  public getTypeOut(): string {
+    return this.type_output || '';
   }
 
   private getAddressType(): AddressType {
@@ -128,16 +146,16 @@ export class Transaction {
       return this.outputs.reduce(add, 0);
       */
 
-/*
+
       const blindStealthOutputCount = this.outputs.reduce(function (a: any, b: any) {
         return a + (b.vout !== 65535 ? (b.stealth_address !== undefined ? 1 : 0) : 0);
       }, 0);
 
       // blind -> blind (own)
-      if(blindStealthOutputCount === 1) {
+      if (blindStealthOutputCount === 1) {
         const add = function (a: any, b: any) { return a + (b.stealth_address !== undefined ? b.amount : 0); }
         return this.outputs.reduce(add, 0);
-      } */
+      }
 
       // only use fake output to determine internal transfer
       const fakeOutput = function (a: any, b: any) { return a - (b.vout === 65535 ? b.amount : 0); }
