@@ -95,7 +95,15 @@ function initMainWindow() {
           { role: 'delete' },
           { role: 'selectall' }
         ]
-      }
+      },
+      {
+        label: 'Ghost Desktop',
+        submenu: [
+            {
+                role: 'quit'
+            }
+        ]
+    },
     ]));
   }
 
