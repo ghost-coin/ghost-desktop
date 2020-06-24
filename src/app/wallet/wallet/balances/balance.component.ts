@@ -5,6 +5,7 @@ import { RpcStateService } from '../../../core/core.module';
 
 import { Amount } from '../../../core/util/utils';
 import { takeWhile } from 'rxjs/operators';
+import {  combineLatest, Observable } from 'rxjs';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { takeWhile } from 'rxjs/operators';
 export class BalanceComponent implements OnInit, OnDestroy {
 
   @Input() type: string; // "total_balance", "anon_balance", "balance", "staked_balance", "blind_balance"
+  @Input() types?: string; // "uncofirmed_balance,unconfirmed_blind,unconfirmed_anon"
   @Input() inSidebar: boolean = false; // located in sidebar?
 
   private log: any = Log.create(`balance.component ${this.type}`);
@@ -28,13 +30,21 @@ export class BalanceComponent implements OnInit, OnDestroy {
   constructor(private _rpcState: RpcStateService) { }
 
   ngOnInit() {
-    const type = this.type === 'locked_balance' ? 'balance' : this.type;
-
-    this._rpcState.observe('getwalletinfo', type)
-      .pipe(takeWhile(() => !this.destroyed))
-      .subscribe(
-        balance => this.listUnSpent(balance),
-        error => this.log.error('Failed to get balance, ', error));
+    if (this.types) {
+        const $balances =  this.types.split(',').map((s) => this._rpcState.observe('getwalletinfo', s) as Observable<number>);
+        combineLatest(...$balances)
+          .pipe(takeWhile(() => !this.destroyed))
+          .subscribe(
+            balance => this.listUnSpent(balance.reduce( (s, p) => s + p)),
+            error => this.log.error('Failed to get balance, ', error));
+    } else {
+      const type = this.type === 'locked_balance' ? 'balance' : this.type;
+      this._rpcState.observe('getwalletinfo', type)
+        .pipe(takeWhile(() => !this.destroyed))
+        .subscribe(
+          balance => this.listUnSpent(balance),
+          error => this.log.error('Failed to get balance, ', error));
+    }
   }
 
   /* UI */

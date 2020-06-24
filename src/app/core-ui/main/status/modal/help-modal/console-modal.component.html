@@ -32,7 +32,7 @@
 
     <div class="content-modal" [ngClass]="{'input': list.type === 1}" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="space-between start" *ngFor="let list of commandList">
       <div fxFlex="1 1 100%" class="command">
-        <pre class="text-format" *ngIf="isJson(list.text)">{{ list.text | json }}</pre>
+        <pre class="text-format all-copy" *ngIf="isJson(list.text)">{{ list.text | json }}</pre>
         <pre class="text-format" [ngClass]="{'warn-text': list.code === -1}" *ngIf="!isJson(list.text)">{{ list.text }}</pre>
       </div>
       <div fxFlex="0 0 55px" class="time" *ngIf="list.type === 1">
