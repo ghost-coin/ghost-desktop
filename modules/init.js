@@ -98,7 +98,7 @@ const sleep = (ms) => {
 
 electron.app.on('before-quit', async function beforeQuit(event) {
   log.info('received quit signal, cleaning up...');
-
+  console.log('before quit event triggered')
   event.preventDefault();
   electron.app.removeListener('before-quit', beforeQuit);
 
