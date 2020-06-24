@@ -50,6 +50,9 @@
           <span *ngSwitchCase="'send'" class="tx-type sent">
             <mat-icon fontSet="partIcon" fontIcon="part-send" color="warn"></mat-icon>
             <span class="name">Sent</span>
+            <span *ngIf="tx.type_output == 'anon'" class="name">(ANON)</span>
+            <span *ngIf="tx.type_output == 'standard'" class="name">(PUBLIC)</span>
+            <span *ngIf="tx.type_output == 'blind'" class="name">(BLIND)</span>
             <mat-icon class="narration" *ngIf="tx.getNarration()" fontSet="partIcon" fontIcon="part-pen-1"
                       matTooltip="{{tx.getNarration()}}" matTooltipPosition="after"></mat-icon>
           </span>
@@ -62,12 +65,20 @@
           <span *ngSwitchCase="'receive'" class="tx-type received">
             <mat-icon fontSet="partIcon" fontIcon="part-receive" color="primary"></mat-icon>
             <span class="name">Received</span>
+            <span *ngIf="tx.type_in == 'anon'" class="name">(ANON)</span>
+            <span *ngIf="tx.type_in == 'standard'" class="name">(PUBLIC)</span>
+            <span *ngIf="tx.type_in == 'blind'" class="name">(BLIND)</span>
             <mat-icon class="narration" *ngIf="tx.getNarration()" fontSet="partIcon" fontIcon="part-pen-1"
                       matTooltip="{{tx.getNarration()}}" matTooltipPosition="after"></mat-icon>
           </span>
           <span *ngSwitchCase="'internal_transfer'" class="tx-type received">
             <mat-icon fontSet="partIcon" fontIcon="part-transfer" color="primary"></mat-icon>
-            <span class="name">Balance transfer</span>
+            <span *ngIf="tx.type_in == 'anon' && tx.type_output == 'standard' " class="name">ANON --> PUBLIC</span>
+            <span *ngIf="tx.type_in == 'standard' && tx.type_output == 'anon' " class="name">PUBLIC --> ANON</span>
+            <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'standard' " class="name">BLIND --> PUBLIC</span>
+            <span *ngIf="tx.type_in == 'standard' && tx.type_output == 'blind' " class="name">PUBLIC --> BLIND</span>
+            <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'anon' " class="name">BLIND --> ANON</span>
+            <span *ngIf="tx.type_in == 'anon' && tx.type_output == 'blind' " class="name">ANON --> BLIND</span>
           </span>
           <span *ngSwitchCase="'listing_fee'" class="tx-type listing-fee">
             <mat-icon fontSet="partIcon" fontIcon="part-bag-buy"></mat-icon>
