@@ -34,8 +34,9 @@ exports.initCloseWindow = () => {
     height:    675,
     minHeight: 675,
     icon:      path.join(__dirname, 'resources/icon.png'),
-
-    frame: false,
+    
+    titleBarStyle: 'hidden',
+    frame: true,
     darkTheme: true,
 
     webPreferences: {
