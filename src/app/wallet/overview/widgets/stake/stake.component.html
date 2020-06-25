@@ -29,7 +29,7 @@
   </p>
 
 
-  <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.isStaking && !isLocked()">
+  <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.isStaking && !isLocked() && _stake.hotstake.amount > 0">
     {{_stake.hotstake.amount}} of your balance is now staking.
   </p>
 
