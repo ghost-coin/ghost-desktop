@@ -5,7 +5,7 @@ const path          = require('path');
 const fs            = require('fs');
 const url           = require('url');
 const platform      = require('os').platform();
-const daemonConfig = require('./modules/daemon/daemonConfig');
+const daemonConfig = require('../daemon/daemonConfig');
 const options = daemonConfig.getConfiguration();
 /* correct appName and userData to respect Linux standards */
 if (process.platform === 'linux') {
@@ -21,7 +21,7 @@ let closeDaemonWindow;
 let tray;
 
 
-exports.initCloseWindow = () => {
+exports.initCloseWindow = function () {
   electron.Menu.setApplicationMenu(null);
   // Create the browser window.
   closeDaemonWindow = new BrowserWindow({
@@ -35,8 +35,7 @@ exports.initCloseWindow = () => {
     minHeight: 675,
     icon:      path.join(__dirname, 'resources/icon.png'),
     
-    titleBarStyle: 'hidden',
-    frame: true,
+    frame: false,
     darkTheme: true,
 
     webPreferences: {

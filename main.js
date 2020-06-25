@@ -25,7 +25,7 @@ const daemonConfig = require('./modules/daemon/daemonConfig');
 const log     = require('./modules/logger').init();
 const init    = require('./modules/init');
 const _auth = require('./modules/webrequest/http-auth');
-const closeWindow = require('./closeWindow');
+const closeWindow = require('./modules/close-gui/closeWindow');
 
 daemonConfig.deleteAuthFile();
 const options = daemonConfig.getConfiguration();
