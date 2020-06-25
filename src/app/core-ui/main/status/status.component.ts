@@ -101,7 +101,7 @@ export class StatusComponent implements OnInit, OnDestroy {
   }
 
   getStakingStatus() {
-    return (this.stakingStatus) ? 'active' : 'inactive';
+    return (this.stakingStatus && !this.isLocked()) ? 'active' : 'inactive';
   }
 
   toggle() {
@@ -122,6 +122,11 @@ export class StatusComponent implements OnInit, OnDestroy {
       default:
         break;
     }
+  }
+  isLocked(){
+    return [
+      'Locked',
+    ].includes(this.encryptionStatus);
   }
 
   /* Open Debug Console Window */
