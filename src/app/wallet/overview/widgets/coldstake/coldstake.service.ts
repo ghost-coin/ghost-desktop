@@ -23,7 +23,7 @@ export class ColdstakeService implements OnDestroy {
     amount: 0
   };
 
-  coldStakingEnabled: boolean = undefined;
+  coldStakingEnabled: boolean = false;
   public encryptionStatus: string = 'Locked';
 
   private progress: Amount = new Amount(0, 2);
@@ -70,10 +70,7 @@ export class ColdstakeService implements OnDestroy {
       this.log.d(`hotstakingamount ${this.hotstake.amount}`);
 
       if ('enabled' in coldstakinginfo) {
-        const enabled = coldstakinginfo['enabled'];
-        this.coldStakingEnabled = enabled;
-      } else {
-        this.coldStakingEnabled = false;
+        this.coldStakingEnabled = coldstakinginfo['enabled'];
       }
       this.updateStakingInfo();
     }, error => this.log.er('couldn\'t get coldstakinginfo', error));
