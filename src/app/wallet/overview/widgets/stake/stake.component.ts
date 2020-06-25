@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material';
 import { Log } from 'ng2-logger';
 
-import { ModalsHelperService } from 'app/modals/modals.module';
+
 import { StakeService } from './stake.service'
+import { ModalsHelperService } from 'app/modals/modals.module';
+import { RpcService, RpcStateService } from 'app/core/core.module';
+
 
 @Component({
   selector: 'app-stake',
@@ -15,20 +17,24 @@ export class StakeComponent {
   private log: any = Log.create('stake.component');
 
   constructor(
-    private dialog: MatDialog,
     /***
      *  @TODO rename ModalsHelperService to ModalsService after modals service refactoring.
      */
     private _modals: ModalsHelperService,
-    public _stake: StakeService
+    public _stake: StakeService,
+    private _rpc: RpcService,
+    private _rpcState: RpcStateService,
   ) { }
 
   openUnlockWalletModal(): void {
     this._modals.unlock({ showStakeOnly: false, stakeOnly: true });
   }
 
-  openStakeModal(): void {
-   // this._modals.stake('stake');
+  lockWallet(): void{
+    this._rpc.call('walletlock')
+          .subscribe(
+            success => this._rpcState.stateCall('getwalletinfo'),
+            error => this.log.er('walletlock error'));
   }
 
   checkLockStatus(): boolean {
@@ -36,6 +42,12 @@ export class StakeComponent {
       'Unlocked',
       'Unlocked, staking only',
       'Unencrypted'
+    ].includes(this._stake.encryptionStatus);
+  }
+
+  isLocked(): boolean {
+    return [
+      'Locked',
     ].includes(this._stake.encryptionStatus);
   }
 }

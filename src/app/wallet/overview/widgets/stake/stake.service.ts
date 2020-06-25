@@ -24,6 +24,7 @@ export class StakeService implements OnDestroy {
   };
 
   stakingEnabled: boolean = undefined;
+  isStaking: boolean = undefined;
   public encryptionStatus: string = 'Locked';
 
   private progress: Amount = new Amount(0, 2);
@@ -58,15 +59,16 @@ export class StakeService implements OnDestroy {
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.stakingEnabled = status);
 
+    this._rpcState.observe('getstakinginfo', 'staking')
+      .pipe(takeWhile(() => !this.destroyed))
+      .subscribe(status => this.isStaking = status);
+
     this.update();
   }
 
   update() {
     this._rpc.call('getstakinginfo').subscribe(stakinginfo => {
       this.log.d('stakingStatus called ' + stakinginfo['enabled']);
-      this.progress = new Amount(stakinginfo['percent_in_coldstakeable_script'], 2);
-
-      this.log.d(`stakingamount (actually a percentage) ${this.progress.getAmount()}`);
       this.log.d(`stakingamount ${this.stake.amount}`);
 
       if ('enabled' in stakinginfo) {
@@ -74,6 +76,12 @@ export class StakeService implements OnDestroy {
         this.stakingEnabled = enabled;
       } else {
         this.stakingEnabled = false;
+      }
+      if ('staking' in stakinginfo) {
+        const staking = stakinginfo['staking'];
+        this.isStaking = staking;
+      } else {
+        this.isStaking = false;
       }
       this.updateStakingInfo();
     }, error => this.log.er('couldn\'t get stakinginfo', error));
