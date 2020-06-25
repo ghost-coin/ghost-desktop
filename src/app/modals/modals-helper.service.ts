@@ -16,7 +16,6 @@ import { EncryptwalletComponent } from 'app/modals/encryptwallet/encryptwallet.c
 import { ListingExpirationComponent } from 'app/modals/market-listing-expiration/listing-expiration.component';
 import { take } from 'rxjs/operators';
 
-
 interface ModalsSettings {
   disableClose: boolean;
 }

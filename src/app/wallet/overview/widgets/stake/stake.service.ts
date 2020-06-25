@@ -18,7 +18,7 @@ export class StakeService implements OnDestroy {
     amount: 0
   };
 
-  public stake: any = {
+  public hotstake: any = {
     txs: [],
     amount: 0
   };
@@ -69,7 +69,7 @@ export class StakeService implements OnDestroy {
   update() {
     this._rpc.call('getstakinginfo').subscribe(stakinginfo => {
       this.log.d('stakingStatus called ' + stakinginfo['enabled']);
-      this.log.d(`stakingamount ${this.stake.amount}`);
+      this.log.d(`stakingamount ${this.hotstake.amount}`);
 
       if ('enabled' in stakinginfo) {
         const enabled = stakinginfo['enabled'];
@@ -117,7 +117,7 @@ export class StakeService implements OnDestroy {
         }
       });
       this.coldstake = coldstake;
-      this.stake = hotstake;
+      this.hotstake = hotstake;
     });
   }
 
