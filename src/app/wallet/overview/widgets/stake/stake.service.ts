@@ -50,6 +50,12 @@ export class StakeService implements OnDestroy {
         this.update();
       });
 
+    this._rpcState.observe('getwalletinfo', 'walletname')
+    .pipe(takeWhile(() => !this.destroyed))
+    .subscribe(status => {
+      this.update();
+    });
+
     this._rpcState.observe('getstakinginfo', 'enabled')
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.stakingEnabled = status);
