@@ -49,7 +49,9 @@ export class ColdstakeComponent {
   openColdStakeModal(): void {
     this._modals.coldStake('cold');
   }
-
+  ngOnInit(){
+    this._coldstake.update()
+  }
   checkLockStatus(): boolean {
     return [
       'Unlocked',
