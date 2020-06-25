@@ -13,11 +13,6 @@ export class StakeService implements OnDestroy {
   private destroyed: boolean = false;
   private log: any = Log.create('stake-service');
 
-  public coldstake: any =  {
-    txs: [],
-    amount: 0
-  };
-
   public hotstake: any = {
     txs: [],
     amount: 0
@@ -83,15 +78,11 @@ export class StakeService implements OnDestroy {
       } else {
         this.isStaking = false;
       }
-      this.updateStakingInfo();
+      this.updateHotStakingInfo();
     }, error => this.log.er('couldn\'t get stakinginfo', error));
   }
 
-  private updateStakingInfo() {
-    const coldstake =  {
-      txs: [],
-      amount: 0
-    }
+  private updateHotStakingInfo() {
     const hotstake =  {
       txs: [],
       amount: 0
@@ -100,14 +91,7 @@ export class StakeService implements OnDestroy {
     this._rpc.call('listunspent').subscribe(unspent => {
       // TODO: Must process amounts as integers
       unspent.map(utxo => {
-        if (utxo.coldstaking_address && utxo.address) {
-          coldstake.amount += utxo.amount;
-          coldstake.txs.push({
-            address: utxo.address,
-            amount: utxo.amount,
-            inputs: [{ tx: utxo.txid, n: utxo.vout }]
-          });
-        } else if (utxo.address) {
+        if (!utxo.coldstaking_address && utxo.address) {
           hotstake.amount += utxo.amount;
           hotstake.txs.push({
             address: utxo.address,
@@ -116,7 +100,6 @@ export class StakeService implements OnDestroy {
           });
         }
       });
-      this.coldstake = coldstake;
       this.hotstake = hotstake;
     });
   }
