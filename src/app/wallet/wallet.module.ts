@@ -11,10 +11,9 @@ import { ProposalsComponent } from './proposals/proposals.component';
 import { AddProposalComponent } from './proposals/add-proposal/add-proposal.component';
 import { StakinginfoComponent } from './overview/widgets/stakinginfo/stakinginfo.component';
 import { StakeComponent } from './overview/widgets/stake/stake.component';
- // Uncomment when cold Stake enabled
-// import { ColdstakeComponent } from './overview/widgets/coldstake/coldstake.component';
-// import { ZapColdstakingComponent } from './overview/widgets/coldstake/zap-coldstaking/zap-coldstaking.component';
-// import { RevertColdstakingComponent } from './overview/widgets/coldstake/revert-coldstaking/revert-coldstaking.component';
+import { ColdstakeComponent } from './overview/widgets/coldstake/coldstake.component';
+import { ZapColdstakingComponent } from './overview/widgets/coldstake/zap-coldstaking/zap-coldstaking.component';
+import { RevertColdstakingComponent } from './overview/widgets/coldstake/revert-coldstaking/revert-coldstaking.component';
 import { HelpComponent } from './help/help.component';
 
 import { wallet_routing } from './wallet.routing';
@@ -29,10 +28,9 @@ import { ProposalDetailsComponent } from './proposals/proposal-details/proposal-
     AddProposalComponent,
     StakinginfoComponent,
     StakeComponent,
-  // Uncomment when cold Stake enabled
-  // ColdstakeComponent,
-  // ZapColdstakingComponent,
-  //  RevertColdstakingComponent,
+    ColdstakeComponent,
+    ZapColdstakingComponent,
+    RevertColdstakingComponent,
     ProposalDetailsComponent,
     HelpComponent
   ],
@@ -45,8 +43,8 @@ import { ProposalDetailsComponent } from './proposals/proposal-details/proposal-
   ],
   entryComponents: [
   // Uncomment when Cold Stake enabled
-    //   ZapColdstakingComponent,
-  //  RevertColdstakingComponent
+    ZapColdstakingComponent,
+    RevertColdstakingComponent
   ],
   exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
