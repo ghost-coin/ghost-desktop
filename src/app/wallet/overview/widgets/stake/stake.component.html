@@ -30,8 +30,8 @@
   </p>
 
 
-  <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.isStaking && !isLocked() && _stake.stakingCause != 'low_balance'">
-    {{_stake.hotstake.amount}} of your balance is now staking. Only your public account balance can be used for staking.
+  <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.isStaking && !isLocked()">
+    {{_stake.hotstake.amount}} of your balance is now staking.
   </p>
 
 
