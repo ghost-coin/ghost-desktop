@@ -15,12 +15,12 @@
     <button mat-raised-button color="primary" (click)="openUnlockWalletModal()" matTooltip="Unlock wallet to enable staking">
       <mat-icon fontSet="partIcon" fontIcon="part-lock"></mat-icon>
     </button>
-    <div class="title">Staking</div>
+    <div class="title">Not Staking</div>
     <div class="subtitle">Unlock to start staking</div>
   </mat-card>
 
   <mat-card *ngIf="_stake.stakingEnabled && !_stake.isStaking && !isLocked()" class="staking-node inactive">
-    <div class="title">Staking</div>
+    <div class="title">Not Staking</div>
     <div class="subtitle">You do not have any coins to stake or your coins are not mature yet</div>
   </mat-card>
 
