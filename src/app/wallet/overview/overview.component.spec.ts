@@ -10,6 +10,7 @@ import { OverviewComponent } from './overview.component';
 import { StakinginfoComponent } from './widgets/stakinginfo/stakinginfo.component';
 import { ColdstakeComponent } from './widgets/coldstake/coldstake.component';
 import { TransactionService } from 'app/wallet/wallet/shared/transaction.service';
+import { StakeComponent } from './widgets/staking/coldstake.component';
 
 import { TransactionsTableComponent } from 'app/wallet/wallet/shared/transaction-table/transaction-table.component';
 import { MockTransactionService } from 'app/wallet/wallet/shared/transaction.mockservice';
@@ -35,7 +36,8 @@ describe('OverviewComponent', () => {
       declarations: [
         OverviewComponent,
         StakinginfoComponent,
-        ColdstakeComponent
+        ColdstakeComponent,
+        StakeComponent
       ]
     })
 

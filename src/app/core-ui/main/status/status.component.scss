@@ -21,7 +21,7 @@
   &.staking {
     font-size: 0.8em;
     &.active {
-      color: $color-info;
+      color: #38b968;
     }
     &.inactive {
       color: darken($bg-shadow, 15%);

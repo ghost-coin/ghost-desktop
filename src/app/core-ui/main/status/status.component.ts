@@ -20,6 +20,7 @@ export class StatusComponent implements OnInit, OnDestroy {
 
   peerListCount: number = 0;
   public coldStakingStatus: boolean;
+  public stakingStatus: boolean;
   public encryptionStatus: string = 'Locked';
   private _sub: Subscription;
   private destroyed: boolean = false;
@@ -49,6 +50,10 @@ export class StatusComponent implements OnInit, OnDestroy {
     this._rpcState.observe('getcoldstakinginfo', 'enabled')
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.coldStakingStatus = status);
+
+    this._rpcState.observe('getstakinginfo', 'staking')
+      .pipe(takeWhile(()=> !this.destroyed))
+      .subscribe(status=> this.stakingStatus = status);
 
     /* Bug: If you remove this line, then the state of 'txcount' doesn't update in the Transaction.service */
     this._rpcState.observe('getwalletinfo', 'txcount')
@@ -88,6 +93,9 @@ export class StatusComponent implements OnInit, OnDestroy {
 
   getColdStakingStatus() {
     return (this.coldStakingStatus) ? 'active' : 'inactive';
+  }
+  getStakingStatus(){
+    return (this.stakingStatus) ? 'active': 'inactive';
   }
 
   toggle() {
