@@ -11,7 +11,6 @@
 
 .icon {
   padding: 1px 0 1px 4px;
-
   // Encryption
   &.encryption {
     cursor: pointer;
@@ -19,6 +18,7 @@
 
   // Staking icon
   &.staking {
+    padding: 0px;
     font-size: 0.8em;
     &.active {
       color: $color-info;
@@ -30,7 +30,6 @@
 
   // Console
   &.console {
-    margin-left: 6px;
     position: relative;
     top: 1px;
     cursor: pointer;

@@ -39,6 +39,7 @@ import { BidConfirmationModalComponent } from 'app/modals/market-bid-confirmatio
 import { ListingExpirationComponent } from './market-listing-expiration/listing-expiration.component';
 import { ProcessingModalComponent } from './processing-modal/processing-modal.component';
 import { AlphaMainnetWarningComponent } from './alpha-mainnet-warning/alpha-mainnet-warning.component';
+import { StakeComponent } from 'app/wallet/overview/widgets/stake/stake.component';
 
 @NgModule({
   imports: [

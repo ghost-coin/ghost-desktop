@@ -41,7 +41,7 @@ yarn install
 2. and then start it: `yarn run start:electron:dev`
    * note: this command will auto-refresh the client on each saved change
    * `-testnet` – for running on testnet (omit for running the client on mainnet)
-   * `-opendevtools` – automatically opens Developer Tools on client launch
+   * `-devtools` – automatically opens Developer Tools on client launch
    * `-skipmarket` – skip launching internal market process
 
 #### Interact with ghost-core daemon
