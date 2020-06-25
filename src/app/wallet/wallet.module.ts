@@ -26,7 +26,6 @@ import { ProposalDetailsComponent } from './proposals/proposal-details/proposal-
     ProposalsComponent,
     AddProposalComponent,
     StakinginfoComponent,
-    ColdstakeComponent,
     ZapColdstakingComponent,
     RevertColdstakingComponent,
     ProposalDetailsComponent,
