@@ -28,14 +28,6 @@ export class StakeService implements OnDestroy {
     private _rpc: RpcService,
     private _rpcState: RpcStateService
   ) {
-
-    this._rpcState.observe('getwalletinfo', 'encryptionstatus')
-      .pipe(takeWhile(() => !this.destroyed))
-      .subscribe(status => {
-        this.encryptionStatus = status;
-        this.update();
-      });
-
     this._rpcState.observe('getwalletinfo', 'txcount')
       .pipe(takeWhile(() => !this.destroyed))
       .pipe(debounceTime(1000/*ms*/))
@@ -60,8 +52,13 @@ export class StakeService implements OnDestroy {
 
     this.update();
   }
- 
+
   update() {
+    this._rpcState.observe('getwalletinfo', 'encryptionstatus')
+    .pipe(takeWhile(() => !this.destroyed))
+    .subscribe(status => {
+      this.encryptionStatus = status;
+    });
     this._rpc.call('getstakinginfo').subscribe(stakinginfo => {
       this.log.d('stakingStatus called ' + stakinginfo['enabled']);
       this.log.d(`stakingamount ${this.hotstake.amount}`);
