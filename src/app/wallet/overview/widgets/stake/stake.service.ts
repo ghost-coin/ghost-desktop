@@ -1,5 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Injectable, OnDestroy, OnInit } from '@angular/core';
 
 import { Log } from 'ng2-logger';
 import { Amount } from '../../../../core/util/utils';
@@ -8,7 +7,7 @@ import { RpcService, RpcStateService } from 'app/core/core.module';
 import { takeWhile, debounceTime } from 'rxjs/operators';
 
 @Injectable()
-export class StakeService implements OnDestroy {
+export class StakeService implements OnDestroy, OnInit {
 
   private destroyed: boolean = false;
   private log: any = Log.create('stake-service');
@@ -60,7 +59,7 @@ export class StakeService implements OnDestroy {
 
     this.update();
   }
-  ngOnIniti() {
+  ngOnInit() {
     this.update();
   }
 
