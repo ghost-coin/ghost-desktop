@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Log } from 'ng2-logger';
 
 
@@ -12,7 +12,7 @@ import { RpcService, RpcStateService } from 'app/core/core.module';
   templateUrl: './stake.component.html',
   styleUrls: ['./stake.component.scss']
 })
-export class StakeComponent {
+export class StakeComponent implements OnInit {
 
   private log: any = Log.create('stake.component');
 
@@ -25,6 +25,10 @@ export class StakeComponent {
     private _rpc: RpcService,
     private _rpcState: RpcStateService,
   ) { }
+
+  ngOnInit() {
+    this._stake.update();
+  }
 
   openUnlockWalletModal(): void {
     this._modals.unlock({ showStakeOnly: false, stakeOnly: true });

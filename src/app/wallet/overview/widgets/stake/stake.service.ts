@@ -7,7 +7,7 @@ import { RpcService, RpcStateService } from 'app/core/core.module';
 import { takeWhile, debounceTime } from 'rxjs/operators';
 
 @Injectable()
-export class StakeService implements OnDestroy, OnInit {
+export class StakeService implements OnDestroy {
 
   private destroyed: boolean = false;
   private log: any = Log.create('stake-service');
@@ -59,10 +59,7 @@ export class StakeService implements OnDestroy, OnInit {
 
     this.update();
   }
-  ngOnInit() {
-    this.update();
-  }
-
+ 
   update() {
     this._rpc.call('getstakinginfo').subscribe(stakinginfo => {
       this.log.d('stakingStatus called ' + stakinginfo['enabled']);
