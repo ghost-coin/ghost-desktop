@@ -139,10 +139,15 @@ export class Transaction {
       const add = function (a: any, b: any) { return a + (b.vout === 65535 ? 0 : b.amount); }
       return this.outputs.reduce(add, 0);
       */
-      if (this.type_in === 'standard') {
+      if (this.type_in === 'standard' && this.type_output !== 'standard') {
         return this.amount;
       }
-
+      // Transfer to himself
+      if (this.type_in === 'standard' && this.type_output === 'standard') {
+        if (this.outputs.length) {
+          return this.outputs.map(o => o.amount ).reduce( (c: number, p: number) =>  p + c );
+        }
+      }
       const blindStealthOutputCount = this.outputs.reduce(function (a: any, b: any) {
         return a + (b.vout !== 65535 ? (b.stealth_address !== undefined ? 1 : 0) : 0);
       }, 0);
