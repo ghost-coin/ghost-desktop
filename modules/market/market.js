@@ -1,7 +1,8 @@
 const log = require('electron-log');
 const config = require('../daemon/daemonConfig');
 const cookie = require('../rpc/cookie');
-const market = require('particl-marketplace');
+// uncomment when needed with ghost
+// const market = require('particl-marketplace');
 const rxIpc = require('rx-ipc-electron/lib/main').default;
 const Observable = require('rxjs/Observable').Observable;
 
@@ -30,7 +31,7 @@ exports.start = function(walletName) {
   if (!_options.skipmarket && !child) {
     log.info('market process starting.');
 
-    const isTestnet = Boolean(+_options.testnet);
+  /*  const isTestnet = Boolean(+_options.testnet);
     const cookieFile = cookie.getCookieName(_options);
 
     const marketOptions = {
@@ -64,14 +65,15 @@ exports.start = function(walletName) {
     });
 
     child.stdout.on('data', data => console.log(data.toString('utf8')));
-    child.stderr.on('data', data => console.log(data.toString('utf8')));
+    child.stderr.on('data', data => console.log(data.toString('utf8')));*/
   }
 }
 
 exports.stop = async function() {
   if (!_options.skipmarket && child) {
     log.info('market process stopping.');
-    market.stop();
+   // uncomment when needed
+   // market.stop();
     child = null;
   }
 }

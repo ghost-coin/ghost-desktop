@@ -159,8 +159,7 @@
     },
     "asar": true,
     "asarUnpack": [
-      "node_modules/sqlite3/**/*",
-      "node_modules/particl-marketplace/**/*"
+      "node_modules/sqlite3/**/*"
     ]
   },
   "dependencies": {
@@ -178,7 +177,6 @@
     "lodash": "^4.17.11",
     "ng2-nvd3": "^2.0.0",
     "node-unzip-2": "^0.2.1",
-    "particl-marketplace": "^0.0.54",
     "rx-ipc-electron": "^0.1.2",
     "rxjs": "^6.3.3",
     "rxjs-compat": "^6.3.3",
