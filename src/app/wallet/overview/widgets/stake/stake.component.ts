@@ -50,8 +50,6 @@ export class StakeComponent implements OnInit {
   }
 
   isLocked(): boolean {
-    return [
-      'Locked',
-    ].includes(this._stake.encryptionStatus);
+    return !this.checkLockStatus();
   }
 }
