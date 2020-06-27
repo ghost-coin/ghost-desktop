@@ -81,7 +81,7 @@
             <span *ngIf="tx.type_in == 'anon' && tx.type_output == 'anon' " class="name">ANON --> ANON</span>
             <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'standard' " class="name">BLIND --> PUBLIC</span>
             <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'anon' " class="name">BLIND --> ANON</span>
-            <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'blind' " class="name">BLIND --> BLIND</span>   
+            <span *ngIf="tx.type_in == 'blind' && tx.type_output == 'blind' " class="name">BLIND --> BLIND</span>
           </span>
           <span *ngSwitchCase="'listing_fee'" class="tx-type listing-fee">
             <mat-icon fontSet="partIcon" fontIcon="part-bag-buy"></mat-icon>
@@ -149,12 +149,12 @@
           <div class="tx-detail-item" fxFlex>
             <span fxFlex="0 0 80px">TXID:</span>
             <a fxFlex="1 1 calc(100% - 80px)" class="tx-detail-link"
-                href="https://{{txService.testnet ? 'testnet' : ''}}.ghostscan.io/tx/{{tx.txid}}"
+                href="https://{{txService.testnet ? 'testnet.' : ''}}ghostscan.io/tx/{{tx.txid}}"
                 target="_blank" matTooltip="Show on Block Explorer">
               {{tx.txid}}</a>
           </div>
         </div>
-  
+
         <div fxFlex="0 0 260px" fxLayout="column">
           <!-- TX fee (detail) -->
           <div class="tx-detail-item text-right" fxFlex>
@@ -167,7 +167,7 @@
             <span class="value">{{ tx.getNetAmount()}} GHOST</span>
           </div>
         </div>
-  
+
         <!-- Narration -->
         <div class="tx-detail-item" fxFlex="1 1 100%" *ngIf="tx.getNarration()">
           <span fxFlex="0 0 80px">Narration:</span>
