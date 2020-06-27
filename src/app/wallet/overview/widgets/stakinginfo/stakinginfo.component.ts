@@ -87,7 +87,7 @@ export class StakinginfoComponent implements OnDestroy {
   }
 
   private calculateDynamicStakingReward(): void {
-    this.ownPercentageOfActiveStakingSupply = new Amount((this.weight / this.netstakeweight) * 100, 5);
+    this.ownPercentageOfActiveStakingSupply = new Amount((this.weight / this.netstakeweight) * 100, 2);
     this.dynamicStakingReward = new Amount(this.curStakeReward.getAmount() * (this.moneysupply / (this.netstakeweight / 10000000)), 2);
 
     this.log.d(`calculateDynamicStakingReward, dynamicStakingReward = ${this.dynamicStakingReward}`);
