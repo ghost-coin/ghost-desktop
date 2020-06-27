@@ -52,14 +52,6 @@ export class StatusComponent implements OnInit, OnDestroy {
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.coldStakingStatus = status);
 
-    this._rpcState.observe('getstakinginfo', 'staking')
-      .pipe(takeWhile(() => !this.destroyed))
-      .subscribe(status => this.stakingStatus = status);
-
-    this._rpcState.observe('getstakinginfo', 'enable')
-      .pipe(takeWhile(() => !this.destroyed))
-      .subscribe(status => this.stakingEnable = status);
-
     /* Bug: If you remove this line, then the state of 'txcount' doesn't update in the Transaction.service */
     this._rpcState.observe('getwalletinfo', 'txcount')
     .pipe(takeWhile(() => !this.destroyed))
@@ -101,7 +93,7 @@ export class StatusComponent implements OnInit, OnDestroy {
   }
 
   getStakingStatus() {
-    return (this.stakingStatus && !this.isLocked()) ? 'active' : 'inactive';
+    return (!this.isLocked()) ? 'active' : 'inactive';
   }
 
   toggle() {

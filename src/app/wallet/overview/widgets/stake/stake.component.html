@@ -3,7 +3,7 @@
     <div class="subtitle">Staking</div>
   </header>
 
-  <mat-card *ngIf="_stake.stakingEnabled && _stake.isStaking && !isLocked()" class="staking-node active">
+  <mat-card *ngIf="_stake.stakingEnabled && !isLocked()" class="staking-node active">
     <button mat-raised-button color="primary" (click)="lockWallet()" matTooltip="Lock wallet disable staking">
       <img class="filter-white" src="assets/icons/SVG/monetization-on.svg"/>
     </button>
@@ -19,17 +19,7 @@
     <div class="subtitle">Unlock to start staking</div>
   </mat-card>
 
-  <mat-card *ngIf="_stake.stakingEnabled && !_stake.isStaking && !isLocked()" class="staking-node inactive">
-    <div class="title">Not Staking</div>
-    <div class="subtitle">You do not have any coins to stake or your coins are not mature yet</div>
-  </mat-card>
-
-  <p class="widget-help" *ngIf="_stake.stakingEnabled && !_stake.isStaking && !isLocked()">
-    If your account is not able to stake please wait for up to 255 confirmations on the blockchain for your coins to mature (become eligible to stake). Additionally only public balances can be used to stake. If the issue persists please try relaunching your wallet client.
-  </p>
-
-
-  <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.isStaking && !isLocked()">
+  <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.hotstake.amount > 0 && !isLocked()">
     {{_stake.hotstake.amount}} of your balance is now staking. Only your public account balance can be used for staking.
   </p>
 
