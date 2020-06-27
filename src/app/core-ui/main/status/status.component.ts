@@ -20,8 +20,6 @@ export class StatusComponent implements OnInit, OnDestroy {
 
   peerListCount: number = 0;
   public coldStakingStatus: boolean;
-  public stakingStatus: boolean;
-  public stakingEnable: boolean;
   public encryptionStatus: string = 'Locked';
   private _sub: Subscription;
   private destroyed: boolean = false;
@@ -115,7 +113,7 @@ export class StatusComponent implements OnInit, OnDestroy {
         break;
     }
   }
-  isLocked(){
+  isLocked() {
     return [
       'Locked',
     ].includes(this.encryptionStatus);
