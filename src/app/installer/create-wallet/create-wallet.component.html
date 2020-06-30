@@ -352,6 +352,9 @@
             <mat-icon fontSet="partIcon" fontIcon="{{passwordRestoreElem.show ? 'part-anon' : 'part-public'}}"></mat-icon>
             {{ passwordRestoreElem.show ? 'Hide' : 'Show' }} password
           </button>
+          <section class="legacy-section">
+            <mat-checkbox [(ngModel)]="isLegacy">Check this box if you created your account mnemonic phrase BEFORE 1 July 2020</mat-checkbox>
+          </section>
         </mat-card>
         <!-- .recovery-password -->
 

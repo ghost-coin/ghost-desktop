@@ -39,10 +39,11 @@ export class PassphraseService {
     return this.validWords.indexOf(word) !== -1;
   }
 
-  importMnemonic(words: string[], password: string) {
-    const params = [words.join(' '), password];
+  importMnemonic(words: string[], password: string, isLegacy: boolean = false) {
+    const params = [words.join(' '), password, false , 'Master Key', 'Default Account', '0', isLegacy];
     if (!password) {
-      params.pop();
+      // If no password we use default value
+      params[1] = '';
     }
     return this._rpc.call('extkeygenesisimport', params).pipe(
       tap(() => this.generateDefaultAddresses()),
