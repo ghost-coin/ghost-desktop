@@ -40,12 +40,15 @@ export class PassphraseService {
   }
 
   importMnemonic(words: string[], password: string, isLegacy: boolean = false) {
-    const params = [words.join(' '), password, false , 'Master Key', 'Default Account', 0, isLegacy];
+    const params = [words.join(' '), password];
+
     if (!password) {
-      // If no password we use default value
-      params[1] = '';
+      params.pop();
     }
-    return this._rpc.call('extkeygenesisimport', params).pipe(
+
+    const command = isLegacy ? 'extkeygenesisimportlegacy' : 'extkeygenesisimport';
+
+    return this._rpc.call(command, params).pipe(
       tap(() => this.generateDefaultAddresses()),
       tap(() => this.rescanBlockchain()));
   }
