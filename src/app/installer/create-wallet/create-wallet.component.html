@@ -322,6 +322,9 @@
             <p class="widget-help">
               <strong>Friendly reminder:</strong> Don't forget that the Recovery Phrase (and Password) are very important for keeping your funds safe. Anyone with access to them has access to your coins. If you think your Recovery Phrase (and Password) might have been exposed, it would be better to create a new wallet instead and send your coins there.
             </p>
+            <section class="legacy-section" *ngIf="!isCreate">
+              <mat-checkbox [(ngModel)]="isLegacy">Check this box if you created your account mnemonic phrase BEFORE  July 1st, 2020 (Core: 0.19.1.5)</mat-checkbox>
+            </section>
           </div>
         </div><!-- .page-intro -->
 
@@ -352,9 +355,6 @@
             <mat-icon fontSet="partIcon" fontIcon="{{passwordRestoreElem.show ? 'part-anon' : 'part-public'}}"></mat-icon>
             {{ passwordRestoreElem.show ? 'Hide' : 'Show' }} password
           </button>
-          <section class="legacy-section">
-            <mat-checkbox [(ngModel)]="isLegacy">Check this box if you created your account mnemonic phrase BEFORE 1 July 2020</mat-checkbox>
-          </section>
         </mat-card>
         <!-- .recovery-password -->
 
