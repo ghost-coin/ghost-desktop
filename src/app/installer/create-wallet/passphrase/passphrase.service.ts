@@ -40,7 +40,7 @@ export class PassphraseService {
   }
 
   importMnemonic(words: string[], password: string, isLegacy: boolean = false) {
-    const params = [words.join(' '), password, false , 'Master Key', 'Default Account', '0', isLegacy];
+    const params = [words.join(' '), password, false , 'Master Key', 'Default Account', 0, isLegacy];
     if (!password) {
       // If no password we use default value
       params[1] = '';
