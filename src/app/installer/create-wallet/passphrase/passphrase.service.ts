@@ -39,12 +39,16 @@ export class PassphraseService {
     return this.validWords.indexOf(word) !== -1;
   }
 
-  importMnemonic(words: string[], password: string) {
+  importMnemonic(words: string[], password: string, isLegacy: boolean = false) {
     const params = [words.join(' '), password];
+
     if (!password) {
       params.pop();
     }
-    return this._rpc.call('extkeygenesisimport', params).pipe(
+
+    const command = isLegacy ? 'extkeygenesisimportlegacy' : 'extkeygenesisimport';
+
+    return this._rpc.call(command, params).pipe(
       tap(() => this.generateDefaultAddresses()),
       tap(() => this.rescanBlockchain()));
   }
