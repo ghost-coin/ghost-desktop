@@ -17,6 +17,8 @@ export class ZapColdstakingComponent {
   private log: any = Log.create('zap-coldstaking');
 
   public utxos: any;
+  public inputs: any;
+
   fee: number;
   script: string;
   public zapSplitDefaultAmount: Amount = new Amount(1500, 8);
@@ -38,7 +40,7 @@ export class ZapColdstakingComponent {
       txs: [],
       amount: 0
     };
-
+    this.inputs = [];
     this._rpc.call('walletsettings', ['changeaddress']).subscribe(res => {
 
       this.log.d('pkey', res);
@@ -80,9 +82,9 @@ export class ZapColdstakingComponent {
             amount: utxo.amount,
             inputs: [{ tx: utxo.txid, n: utxo.vout }]
           });
+          this.inputs.push({ tx: utxo.txid, n: utxo.vout });
         };
       });
-
       this._rpc.call('getnewaddress', ['""', 'false', 'false', 'true'])
         .subscribe(spendingAddress => {
           this.log.d('spending address', spendingAddress);
@@ -128,9 +130,8 @@ export class ZapColdstakingComponent {
 
             this.log.d('zap splits', splits);
 
-            this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, '', '', 4, 64, true, JSON.stringify({
-              inputs: this.utxos.txs
-            })]).subscribe(tx => {
+            this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, '', '', 4, 64, true, {inputs: this.inputs}
+          ]).subscribe(tx => {
               this.log.d('fees', tx);
               this.fee = tx.fee;
             });
@@ -169,9 +170,7 @@ export class ZapColdstakingComponent {
     this.log.d('zap splits', splits);
 
 
-    this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, 'coldstaking zap', '', 4, 64, false, JSON.stringify({
-      inputs: this.utxos.txs
-    })]).subscribe(info => {
+    this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, 'coldstaking zap', '', 4, 64, false, {inputs: this.inputs}]).subscribe(info => {
       this.log.d('zap', info);
 
       this.dialogRef.close();
