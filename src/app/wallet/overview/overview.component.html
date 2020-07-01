@@ -21,12 +21,8 @@
       <td><app-balance type="locked_balance" [inSidebar]="true"></app-balance></td>
     </tr>
     <tr>
-      <th matTooltip="Coins currently (locked in) staking" matTooltipPosition="left">Staking</th>
-      <td><app-balance type="staked_balance" [inSidebar]="true"></app-balance></td>
-    </tr>
-    <tr>
       <th matTooltip="Immature coins not able to spend" matTooltipPosition="left">Immature</th>
-      <td><app-balance type="" types="immature_balance,immature_anon_balance" [inSidebar]="true"></app-balance></td>
+      <td><app-balance type="" types="immature_balance,immature_anon_balance,staked_balance" [inSidebar]="true"></app-balance></td>
     </tr>
     <tr>
       <th matTooltip="Incoming unconfirmed coins" matTooltipPosition="left">Unconfirmed</th>

@@ -91,7 +91,7 @@ export class StatusComponent implements OnInit, OnDestroy {
   }
 
   getStakingStatus() {
-    return (!this.isLocked()) ? 'active' : 'inactive';
+    return (!this.isLocked()) ? (this.coldStakingStatus ? 'inactive' : 'active') : 'inactive';
   }
 
   toggle() {

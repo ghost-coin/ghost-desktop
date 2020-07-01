@@ -7,7 +7,8 @@
     <button mat-raised-button color="primary" (click)="lockWallet()" matTooltip="Lock wallet to stop staking">
       <img class="filter-white" src="assets/icons/SVG/monetization-on.svg"/>
     </button>
-    <div class="subtitle">Active</div>
+    <div class="subtitle" *ngIf="_stake.hotstake.amount > 0">Active</div>
+    <div *ngIf="_stake.hotstake.amount === 0">Enabled, but coins not mature or no coins</div>
   </mat-card>
 
   <mat-card *ngIf="isLocked()" class="staking-node inactive">

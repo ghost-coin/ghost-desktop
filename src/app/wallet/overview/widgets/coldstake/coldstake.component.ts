@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Log } from 'ng2-logger';
 
@@ -13,7 +13,7 @@ import { RevertColdstakingComponent } from './revert-coldstaking/revert-coldstak
   templateUrl: './coldstake.component.html',
   styleUrls: ['./coldstake.component.scss']
 })
-export class ColdstakeComponent {
+export class ColdstakeComponent implements OnInit {
 
   private log: any = Log.create('coldstake.component');
 
@@ -25,6 +25,10 @@ export class ColdstakeComponent {
     private _modals: ModalsHelperService,
     public _coldstake: ColdstakeService
   ) { }
+
+  ngOnInit() {
+    this._coldstake.update()
+  }
 
   zap() {
     this._modals.unlock({}, (status) => this.openZapColdstakingModal());
@@ -49,9 +53,7 @@ export class ColdstakeComponent {
   openColdStakeModal(): void {
     this._modals.coldStake('cold');
   }
-  ngOnInit(){
-    this._coldstake.update()
-  }
+
   checkLockStatus(): boolean {
     return [
       'Unlocked',
