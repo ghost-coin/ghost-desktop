@@ -19,6 +19,7 @@ export class ZapColdstakingComponent {
   public utxos: any;
   fee: number;
   script: string;
+  public zapSplitDefaultAmount: Amount = new Amount(1500, 8);
 
   constructor(
     private flashNotification: SnackbarService,
@@ -83,57 +84,92 @@ export class ZapColdstakingComponent {
       });
 
       this._rpc.call('getnewaddress', ['""', 'false', 'false', 'true'])
-      .subscribe(spendingAddress => {
-        this.log.d('spending address', spendingAddress);
-        if (!spendingAddress || spendingAddress === '') {
-          return false;
-        }
-
-        this._rpc.call('buildscript', [{
-          recipe: 'ifcoinstake',
-          addrstake: coldstakingAddress,
-          addrspend: spendingAddress
-        }]).subscribe(script => {
-
-          this.log.d('script', script);
-          if (!script || !script.hex) {
+        .subscribe(spendingAddress => {
+          this.log.d('spending address', spendingAddress);
+          if (!spendingAddress || spendingAddress === '') {
             return false;
           }
-          this.script = script.hex;
 
-          const amount = new Amount(this.utxos.amount, 8);
-          this.log.d('amount', amount.getAmount());
+          this._rpc.call('buildscript', [{
+            recipe: 'ifcoinstake',
+            addrstake: coldstakingAddress,
+            addrspend: spendingAddress
+          }]).subscribe(script => {
 
-          this._rpc.call('sendtypeto', ['ghost', 'ghost', [{
-            subfee: true,
-            address: 'script',
-            amount: amount.getAmount(),
-            script: script.hex
-          }], '', '', 4, 64, true, JSON.stringify({
-            inputs: this.utxos.txs
-          })]).subscribe(tx => {
+            this.log.d('script', script);
+            if (!script || !script.hex) {
+              return false;
+            }
+            this.script = script.hex;
 
-            this.log.d('fees', tx);
-            this.fee = tx.fee;
+            const amount = new Amount(this.utxos.amount, 8);
+            this.log.d('amount', amount.getAmount());
+            let splits = 0;
+            if (amount.getAmount() > this.zapSplitDefaultAmount.getAmount()) {
+              splits = Math.floor(amount.getAmount() / this.zapSplitDefaultAmount.getAmount());
+            }
+            const outputs = [];
+            // If we can split the outputs we build several outputs with default size amount
+            if (splits > 0) {
+              let amountInSplits = 0;
+              for (let index = 0; index < splits; index++) {
+                outputs.push({ subfee: true, address: 'script', amount: this.zapSplitDefaultAmount.getAmount(), script: script.hex })
+                amountInSplits = amountInSplits + this.zapSplitDefaultAmount.getAmount();
+              }
+              const remainingCoins = amount.getAmount() - amountInSplits;
+              // we create an additional output for the remaining coins if the threshold is higher than 100 coins
+              if ( remainingCoins > 100) {
+                outputs.push({ subfee: true, address: 'script', amount: Math.floor(remainingCoins), script: this.script })
+              }
+
+            } else {
+              outputs.push({ subfee: true, address: 'script', amount: amount.getAmount(), script: script.hex })
+            }
+
+            this.log.d('zap splits', splits);
+
+            this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, '', '', 4, 64, true, JSON.stringify({
+              inputs: this.utxos.txs
+            })]).subscribe(tx => {
+              this.log.d('fees', tx);
+              this.fee = tx.fee;
+            });
+            this.log.d('zap initialized with outputs', outputs);
 
           });
-
         });
-      });
     });
   }
 
   zap() {
 
     this.log.d('zap tx', this.utxos.amount, this.script, this.utxos.txs);
-
     const amount = new Amount(this.utxos.amount, 8);
-    this._rpc.call('sendtypeto', ['ghost', 'ghost', [{
-      subfee: true,
-      address: 'script',
-      amount: amount.getAmount(),
-      script: this.script
-    }], 'coldstaking zap', '', 4, 64, false, JSON.stringify({
+    let splits = 0;
+    if (amount.getAmount() > this.zapSplitDefaultAmount.getAmount()) {
+      splits = Math.floor(amount.getAmount() / this.zapSplitDefaultAmount.getAmount());
+    }
+    const outputs = [];
+    // If we can split the outputs we build several outputs with default size amount
+    if (splits > 0) {
+      let amountInSplits = 0;
+      for (let index = 0; index < splits; index++) {
+        outputs.push({ subfee: true, address: 'script', amount: this.zapSplitDefaultAmount.getAmount(), script: this.script })
+        amountInSplits = amountInSplits + this.zapSplitDefaultAmount.getAmount();
+      }
+      const remainingCoins = amount.getAmount() - amountInSplits;
+      // we create an additional output for the remaining coins if the threshold is higher than 100 coins
+      if (remainingCoins > 100) {
+        outputs.push({ subfee: true, address: 'script', amount: Math.floor(remainingCoins), script: this.script })
+      }
+    } else {
+      outputs.push({ subfee: true, address: 'script', amount: amount.getAmount(), script: this.script })
+    }
+
+    this.log.d('zap splits', splits);
+
+
+    this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, 'coldstaking zap', '', 4, 64, false, JSON.stringify({
       inputs: this.utxos.txs
     })]).subscribe(info => {
       this.log.d('zap', info);
