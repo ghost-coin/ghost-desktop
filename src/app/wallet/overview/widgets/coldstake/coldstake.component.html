@@ -59,7 +59,7 @@
       </button>
     </p>
   </mat-card>
-  <p class="widget-help" *ngIf="_coldstake.coldStakingEnabled">
+  <p class="widget-help" *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
     {{_coldstake.coldstakeProgress}}% of your balance is now cold staking.
     The activation process will continue only when your wallet is online and unlocked for staking.
   </p>
