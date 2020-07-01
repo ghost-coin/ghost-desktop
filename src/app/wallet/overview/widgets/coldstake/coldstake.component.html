@@ -51,7 +51,7 @@
     </mat-progress-bar>
     <!-- TODO: component ? -->
     <p class="buttons">
-      <button mat-button class="small" color="primary" matTooltip="Fast-forward to 100%" (click)="zap()" *ngIf="_coldstake.coldStakingEnabled&& _coldstake.coldstakeProgress < 100">
+      <button mat-button class="small" color="primary" matTooltip="Fast-forward to 100%" (click)="zap()" *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
         Zap
       </button>
       <button mat-button class="small" color="warn" matTooltip="Disable Cold Staking" (click)="revert()">
@@ -88,7 +88,7 @@
       <button mat-button class="small" color="primary"
         matTooltip="Fast-forward to 100%"
         (click)="zap()"
-        *ngIf="_coldstake.coldStakingEnabled&& _coldstake.coldstakeProgress < 100">
+        *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
         Zap
         <!-- <span class="tag zap">{{ hotstaking.txs.length }}</span> -->
       </button>
