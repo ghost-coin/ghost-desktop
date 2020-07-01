@@ -88,7 +88,7 @@
       <button mat-button class="small" color="primary"
         matTooltip="Fast-forward to 100%"
         (click)="zap()"
-        *ngIf="_coldstake.hotstake.txs.length">
+        *ngIf="_coldstake.coldStakingEnabled&& _coldstake.coldstakeProgress < 100">
         Zap
         <!-- <span class="tag zap">{{ hotstaking.txs.length }}</span> -->
       </button>
