@@ -36,7 +36,9 @@ export class ColdstakeService implements OnDestroy {
     this._rpcState.observe('getcoldstakinginfo', 'enabled')
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.coldStakingEnabled = status);
-
+    this._rpcState.observe('getcoldstakinginfo', 'percent_in_coldstakeable_script')
+      .pipe(takeWhile(() => !this.destroyed))
+      .subscribe(progress =>  this.progress = new Amount(progress, 2));
     this.update();
   }
 
