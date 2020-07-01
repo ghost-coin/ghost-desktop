@@ -62,7 +62,7 @@ export class ZapColdstakingComponent {
       }
 
     }, error => {
-      this.log.er('errr');
+      this.log.er('errr', error);
     });
   }
 
