@@ -1,26 +1,26 @@
 <div class="staking section">
   <header>
-    <div class="subtitle">Staking</div>
+    <div class="subtitle">Hot Staking</div>
   </header>
 
   <mat-card *ngIf="_stake.stakingEnabled && !isLocked()" class="staking-node active">
-    <button mat-raised-button color="primary" (click)="lockWallet()" matTooltip="Lock wallet disable staking">
+    <button mat-raised-button color="primary" (click)="lockWallet()" matTooltip="Lock wallet to stop staking">
       <img class="filter-white" src="assets/icons/SVG/monetization-on.svg"/>
     </button>
-    <div class="title">Staking</div>
-    <div class="subtitle">Active</div>
+    <div class="subtitle" *ngIf="_stake.hotstake.amount > 0">Active</div>
+    <div *ngIf="_stake.hotstake.amount === 0">Enabled, but coins not mature or no coins</div>
   </mat-card>
 
   <mat-card *ngIf="isLocked()" class="staking-node inactive">
-    <button mat-raised-button color="primary" (click)="openUnlockWalletModal()" matTooltip="Unlock wallet to enable staking">
+    <button mat-raised-button color="primary" (click)="openUnlockWalletModal()" matTooltip="Unlock wallet to start hot staking">
       <mat-icon fontSet="partIcon" fontIcon="part-lock"></mat-icon>
     </button>
     <div class="title">Not Staking</div>
-    <div class="subtitle">Unlock to start staking</div>
+    <div class="subtitle">Unlock to start hot staking</div>
   </mat-card>
 
   <p class="widget-help" *ngIf="_stake.stakingEnabled && _stake.hotstake.amount > 0 && !isLocked()">
-    {{_stake.hotstake.amount}} of your balance is now staking. Only your public account balance can be used for staking.
+    {{_stake.hotstake.amount}} of your balance is now staking. Only your public account balance can be used for hot staking.
   </p>
 
 

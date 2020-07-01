@@ -145,7 +145,7 @@ export class Transaction {
       // Transfer to himself
       if (this.type_in === 'standard' && this.type_output === 'standard') {
         if (this.outputs.length) {
-          return this.outputs.map(o => o.amount ).reduce( (c: number, p: number) =>  p + c );
+          return this.outputs.map(o => Number(o.amount) ).reduce( (c: number, p: number) =>  p + c );
         }
       }
       const blindStealthOutputCount = this.outputs.reduce(function (a: any, b: any) {

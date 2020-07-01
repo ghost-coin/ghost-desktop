@@ -33,35 +33,22 @@ export class ColdstakeService implements OnDestroy {
     private _rpcState: RpcStateService
   ) {
 
-    this._rpcState.observe('getwalletinfo', 'encryptionstatus')
-      .pipe(takeWhile(() => !this.destroyed))
-      .subscribe(status => {
-        this.encryptionStatus = status;
-        this.update();
-      });
-
-    this._rpcState.observe('getwalletinfo', 'txcount')
-      .pipe(takeWhile(() => !this.destroyed))
-      .pipe(debounceTime(1000/*ms*/))
-      .subscribe(txcount => {
-        this.update();
-      });
-
-    this._rpcState.observe('getblockchaininfo', 'blocks')
-      .pipe(takeWhile(() => !this.destroyed))
-      .pipe(debounceTime(10 * 1000/*ms*/))
-      .subscribe(status => {
-        this.update();
-      });
-
     this._rpcState.observe('getcoldstakinginfo', 'enabled')
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.coldStakingEnabled = status);
-
+    this._rpcState.observe('getcoldstakinginfo', 'percent_in_coldstakeable_script')
+      .pipe(takeWhile(() => !this.destroyed))
+      .subscribe(progress =>  this.progress = new Amount(progress, 2));
     this.update();
   }
 
   update() {
+    this._rpcState.observe('getwalletinfo', 'encryptionstatus')
+    .pipe(takeWhile(() => !this.destroyed))
+    .subscribe(status => {
+      this.encryptionStatus = status;
+    });
+
     this._rpc.call('getcoldstakinginfo').subscribe(coldstakinginfo => {
       this.log.d('stakingStatus called ' + coldstakinginfo['enabled']);
       this.progress = new Amount(coldstakinginfo['percent_in_coldstakeable_script'], 2);

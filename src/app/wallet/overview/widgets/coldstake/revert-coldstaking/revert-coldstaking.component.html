@@ -22,7 +22,7 @@
     Cancel
   </button>
 
-  <button mat-raised-button color="warn" (click)="revert()">
+  <button mat-raised-button color="warn" (click)="revert()"  [disabled]="utxos.txs.length > 0 && !fee">
     <mat-icon fontSet="partIcon" fontIcon="part-refresh"></mat-icon>
     Disable Cold Staking
   </button>

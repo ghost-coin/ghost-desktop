@@ -12,7 +12,7 @@ export class StakeService implements OnDestroy {
   private destroyed: boolean = false;
   private log: any = Log.create('stake-service');
 
-  public hotstake: any = {
+  public hotstake: {txs: any[], amount: number} = {
     txs: [],
     amount: 0
   };
@@ -44,6 +44,10 @@ export class StakeService implements OnDestroy {
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(status => this.stakingEnabled = status);
 
+    this._rpcState.observe('getstakinginfo', 'weight')
+      .pipe(takeWhile(() => !this.destroyed))
+      .subscribe(weight => this.hotstake.amount = (new Amount(weight)).getGhostCoins());
+
     this.update();
   }
 
@@ -63,12 +67,18 @@ export class StakeService implements OnDestroy {
       } else {
         this.stakingEnabled = false;
       }
-
-      this.updateHotStakingInfo();
+      if ('weight' in stakinginfo) {
+        const weight = stakinginfo['weight'];
+        this.hotstake.amount = (new Amount(weight)).getGhostCoins();
+      } else {
+        this.stakingEnabled = false;
+      }
+    // TODO: Remove this later if not used
+     // this.updateHotStakingInfo();
     }, error => this.log.er('couldn\'t get stakinginfo', error));
   }
-
-  private updateHotStakingInfo() {
+  // TODO: Remove this later if not used
+ /* private updateHotStakingInfo() {
     const hotstake =  {
       txs: [],
       amount: 0
@@ -88,7 +98,7 @@ export class StakeService implements OnDestroy {
       });
       this.hotstake = hotstake;
     });
-  }
+  }*/
 
   ngOnDestroy() {
     this.destroyed = true;

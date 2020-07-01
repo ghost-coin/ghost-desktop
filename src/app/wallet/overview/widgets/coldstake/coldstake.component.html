@@ -3,7 +3,7 @@
     <div class="subtitle">Cold Staking</div>
   </header>
 
-  <mat-card *ngIf="_coldstake.coldStakingEnabled" class="staking-node inactive">
+  <mat-card *ngIf="_coldstake.coldStakingEnabled && !checkLockStatus()" class="staking-node inactive">
     <button mat-raised-button color="primary" (click)="openUnlockWalletModal()" matTooltip="Unlock wallet to enable cold staking">
       <mat-icon fontSet="partIcon" fontIcon="part-lock"></mat-icon>
     </button>
@@ -51,7 +51,7 @@
     </mat-progress-bar>
     <!-- TODO: component ? -->
     <p class="buttons">
-      <button mat-button class="small" color="primary" matTooltip="Fast-forward to 100%" (click)="zap()" *ngIf="_coldstake.hotstake.txs.length">
+      <button mat-button class="small" color="primary" matTooltip="Fast-forward to 100%" (click)="zap()" *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
         Zap
       </button>
       <button mat-button class="small" color="warn" matTooltip="Disable Cold Staking" (click)="revert()">
@@ -59,7 +59,7 @@
       </button>
     </p>
   </mat-card>
-  <p class="widget-help" *ngIf="_coldstake.coldStakingEnabled">
+  <p class="widget-help" *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
     {{_coldstake.coldstakeProgress}}% of your balance is now cold staking.
     The activation process will continue only when your wallet is online and unlocked for staking.
   </p>
@@ -88,7 +88,7 @@
       <button mat-button class="small" color="primary"
         matTooltip="Fast-forward to 100%"
         (click)="zap()"
-        *ngIf="_coldstake.hotstake.txs.length">
+        *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
         Zap
         <!-- <span class="tag zap">{{ hotstaking.txs.length }}</span> -->
       </button>

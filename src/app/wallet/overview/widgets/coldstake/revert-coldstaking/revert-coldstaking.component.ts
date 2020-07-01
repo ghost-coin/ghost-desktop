@@ -36,7 +36,6 @@ export class RevertColdstakingComponent implements OnInit {
       txs: [],
       amount: 0
     };
-
     this._rpc.call('liststealthaddresses', null)
       .subscribe(stealthAddresses => {
         try {
@@ -78,9 +77,9 @@ export class RevertColdstakingComponent implements OnInit {
               subfee: true,
               address: this.address,
               amount: tx.amount
-            }], '', '', 4, 64, true, JSON.stringify({
+            }], '', '', 4, 64, true,{
               inputs: tx.inputs
-            })]).subscribe(res => {
+            }]).subscribe(res => {
 
               sentTXs++;
               totalFee += res.fee;
@@ -90,13 +89,13 @@ export class RevertColdstakingComponent implements OnInit {
                 this.fee = totalFee;
               }
             }, error => {
-              this.log.er('errr');
+              this.log.er('errr',error);
             });
           });
         });
       },
         error => {
-          this.log.er('errr');
+          this.log.er('errr',error);
         });
   }
 
@@ -120,9 +119,9 @@ export class RevertColdstakingComponent implements OnInit {
         subfee: true,
         address: this.address,
         amount: tx.amount
-      }], 'revert coldstaking', '', 4, 64, false, JSON.stringify({
+      }], 'revert coldstaking', '', 4, 64, false, {
         inputs: tx.inputs
-      })]).subscribe(res => {
+      }]).subscribe(res => {
 
         this.log.d('revert response', res);
         amount += tx.amount;

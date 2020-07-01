@@ -108,6 +108,11 @@ export class Amount {
     return (this.amount) / 100000000;
   }
 
+  // Convert satoshi coins to original Ghost coins
+  public getGhostCoins() {
+    return (this.amount) / 100000000;
+  }
+
 }
 
 export class Fee {
