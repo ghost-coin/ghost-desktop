@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var releasesURL = "https://api.github.com/repos/ghost-coin/ghost-core/releases";
 var signaturesURL = "https://api.github.com/repos/ghost-coin/gitian.sigs/contents";
-var maintainer = "Ghost";
+var maintainer = "akshaynexus";
 
 /*
  * Filters a hash file to find this asset's hash

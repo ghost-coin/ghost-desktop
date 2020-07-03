@@ -1,15 +1,15 @@
 {
   "clients": {
     "ghostd": {
-      "version": "0.19.1.5",
+      "version": "0.19.1.6",
       "platforms": {
         "linux": {
           "arm": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.5/ghost-0.19.1.5-arm-linux-gnueabihf.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.6/ghost-0.19.1.6-arm-linux-gnueabihf.tar.gz",
               "type": "tar",
-              "sha256": "c77e7dcb04318544d3e5d15e4dd4e54534e8bf35a7bd28a92f863316428dccf7",
-              "bin": "ghost-0.19.1.5/bin/ghostd"
+              "sha256": "05cc412ec63557a95c7543589e77d750feb5cd24f9cf85ee1d6e44d2c2f1c9da",
+              "bin": "ghost-0.19.1.6/bin/ghostd"
             },
             "bin": "ghostd",
             "commands": {
@@ -19,17 +19,17 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.5"
+                  "0.19.1.6"
                 ]
               }
             }
           },
           "ia32": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.5/ghost-0.19.1.5-i686-pc-linux-gnu_nousb.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.6/ghost-0.19.1.6-i686-pc-linux-gnu_nousb.tar.gz",
               "type": "tar",
-              "sha256": "6f9b3ff4d4dff38b75b380833bcc23991ff97d01bc6a07285bcce6fac8a92e9b",
-              "bin": "ghost-0.19.1.5/bin/ghostd"
+              "sha256": "5018f8a724b2c8d34f4dcac1e58cacf00914aab7ff9b08b18a1fb0c92b868abf",
+              "bin": "ghost-0.19.1.6/bin/ghostd"
             },
             "bin": "ghostd",
             "commands": {
@@ -39,17 +39,17 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.5"
+                  "0.19.1.6"
                 ]
               }
             }
           },
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.5/ghost-0.19.1.5-x86_64-linux-gnu_nousb.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.6/ghost-0.19.1.6-x86_64-linux-gnu_nousb.tar.gz",
               "type": "tar",
-              "sha256": "c48a14a5f9c28854bbf2ebc75d6a62e26209794e67e677dd3755daa22aac1d58",
-              "bin": "ghost-0.19.1.5/bin/ghostd"
+              "sha256": "77c74eee0ead33e27bc5cbc5e1b88c42aa861e033c01b142e84c7dba48861b32",
+              "bin": "ghost-0.19.1.6/bin/ghostd"
             },
             "bin": "ghostd",
             "commands": {
@@ -59,7 +59,7 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.5"
+                  "0.19.1.6"
                 ]
               }
             }
@@ -68,10 +68,10 @@
         "mac": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.5/ghost-0.19.1.5-osx64.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.6/ghost-0.19.1.6-osx64.tar.gz",
               "type": "tar",
-              "sha256": "fa2c3d19d6a2c86fc0347912c0b45503c33b00acc679f659cebd4e1414f8278d",
-              "bin": "ghost-0.19.1.5/bin/ghostd"
+              "sha256": "ce8a4ba332ec4a1229305f50e833720c33253951319880d16b1d4441030119ef",
+              "bin": "ghost-0.19.1.6/bin/ghostd"
             },
             "bin": "ghostd",
             "commands": {
@@ -81,7 +81,7 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.5"
+                  "0.19.1.6"
                 ]
               }
             }
@@ -90,10 +90,10 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.5/ghost-0.19.1.5-win64.zip",
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.6/ghost-0.19.1.6-win64.zip",
               "type": "zip",
-              "sha256": "1766ba6d6408636de6e3bdb6bdb17824325852681f8a97a01b36bbbb00d0d93f",
-              "bin": "ghost-0.19.1.5/bin/ghostd.exe"
+              "sha256": "e99bb7697e37f5ffdf923d6822944e161fa4341459e89d64e5a820d89ab1e27d",
+              "bin": "ghost-0.19.1.6/bin/ghostd.exe"
             },
             "bin": "ghostd.exe",
             "commands": {
@@ -103,7 +103,7 @@
                 ],
                 "output": [
                   "Ghost Core version",
-                  "0.19.1.5"
+                  "0.19.1.6"
                 ]
               }
             }
