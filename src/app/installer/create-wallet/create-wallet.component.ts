@@ -68,6 +68,8 @@ export class CreateWalletComponent implements OnInit {
   encrypt: string = '';
   encryptVerify: string = '';
 
+  isLegacy: boolean = false;
+
   constructor(
     private _passphraseService: PassphraseService,
     private _rpc: RpcService,
@@ -153,7 +155,8 @@ export class CreateWalletComponent implements OnInit {
         break;
 
       case Steps.WALLET_NAME:
-        this._rpc.call('createwallet', [this.walletname]).subscribe(
+        const params = [this.walletname, false, false, '', false, this.isLegacy ? true : false];
+        this._rpc.call('createwallet', params).subscribe(
           wallet => {
             this.log.d('createwallet: ', wallet);
             this.errorString = '';
@@ -431,7 +434,7 @@ export class CreateWalletComponent implements OnInit {
   }
 
   private importMnemoic(): void {
-    this._passphraseService.importMnemonic(this.words, this.password).subscribe(
+    this._passphraseService.importMnemonic(this.words, this.password, this.isLegacy).subscribe(
       () => {
         this.log.i('Mnemonic imported successfully');
         this.goToStep(Steps.COMPLETED);
