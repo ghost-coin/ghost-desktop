@@ -8,7 +8,7 @@ import { SnackbarService } from '../../../core/snackbar/snackbar.service';
 
 /* fix wallet */
 import { FixWalletModalComponent } from 'app/wallet/wallet/send/fix-wallet-modal/fix-wallet-modal.component';
-import { TransactionBuilder } from './transaction-builder.model';
+import { TransactionBuilder, TxType } from './transaction-builder.model';
 import { map, take } from 'rxjs/operators';
 import { Amount } from 'app/core/util/utils';
 
@@ -39,7 +39,7 @@ export class SendService {
 
   public getTransactionFee(tx: TransactionBuilder): Observable<any> {
     tx.estimateFeeOnly = true;
-    if (!tx.toAddress) {
+    if (!tx.toAddress || tx.output !== TxType.PUBLIC) {
       return new Observable((observer) => {
         this.getDefaultStealthAddress().pipe(take(1)).subscribe(
           (stealthAddress: string) => {
