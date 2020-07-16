@@ -122,11 +122,14 @@ export class Transaction {
   }
 
 
-  public getConfirmationCount(confirmations: number): string {
+  public getConfirmationCountString(confirmations: number): string {
     if (this.confirmations > 12) {
       return '12+';
     }
     return this.confirmations.toString();
+  }
+  public getConfirmationCount(){
+    return this.confirmations;
   }
 
 
