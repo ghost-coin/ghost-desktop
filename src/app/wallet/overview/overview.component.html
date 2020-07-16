@@ -67,7 +67,8 @@
 
     <div class="recent-transactions section">
       <header>
-        <div class="subtitle">Recent Transactions</div>
+        <div class="legacy-notification" *ngIf="firstTxBlock < 5955">Legacy wallet, learn how to upgrade here</div>
+        <div class="subtitle" [ngClass]="{'del-margin-top' : firstTxBlock < 5955}">Recent Transactions</div>
         <!-- TODO: uncomment when widget management is ready -->
         <!--div class="buttons">
           <mat-icon class="icon" fontSet="partIcon" fontIcon="part-cog" matTooltip="Edit widget"></mat-icon>

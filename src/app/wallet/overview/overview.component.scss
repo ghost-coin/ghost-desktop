@@ -28,6 +28,22 @@
   }
 }
 
+.legacy-notification {
+  color: darken($color-alert, 5%);
+  border-color: $color-alert;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.section {
+  // override margin-top of overview section titles
+  header {
+    .del-margin-top {
+      margin-top: 0;
+    }
+  }
+}
+
 .overview { // area with widgets
   display: flex;
   padding: 0 35px 50px;
