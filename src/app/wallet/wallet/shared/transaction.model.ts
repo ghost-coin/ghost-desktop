@@ -128,7 +128,8 @@ export class Transaction {
     }
     return this.confirmations.toString();
   }
-  public getConfirmationCount(){
+
+  public getConfirmationCount() {
     return this.confirmations;
   }
 
