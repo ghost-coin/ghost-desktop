@@ -85,11 +85,11 @@ export class TransactionsTableComponent implements OnInit {
   }
   // func to check if internal tx should show conversion flow
   public shouldshowIO(tx: Transaction): boolean {
-    return tx != null && tx.type_in != null && tx.type_output != null);
+    return tx != null && tx.type_in != null && tx.type_output != null;
   }
 
   public getIOText(tx: Transaction): string {
-    return `${tx.type_in.toUpperCase()} --> ${tx.type_output.toUpperCase()}`
+    return `${tx.type_in.toUpperCase()} --> ${tx.type_output.toUpperCase()}`;
   }
 
   public shouldshowRecvType(tx: Transaction): boolean {
