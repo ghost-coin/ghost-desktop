@@ -201,9 +201,9 @@ export class Duration {
   }
 
 export class AddressHelper {
-  addressPublicRegex: RegExp = /^[gG][a-km-zA-HJ-NP-Z1-9]{25,52}$/;
+  addressPublicRegex: RegExp = /^[gGxX][a-km-zA-HJ-NP-Z1-9]{25,52}$/;
   addressPrivateRegex: RegExp = /^[Ss][a-km-zA-HJ-NP-Z1-9]{60,}$/
-  addressBothRegex: RegExp = /^[gGsS][a-km-zA-HJ-NP-Z1-9]{25,}$/;
+  addressBothRegex: RegExp = /^[gGsSxX][a-km-zA-HJ-NP-Z1-9]{25,}$/;
 
   testAddress(address: string, type?: string): boolean {
     return this[(type ? type === 'public'

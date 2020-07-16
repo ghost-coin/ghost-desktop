@@ -212,7 +212,7 @@ export class SendComponent implements OnInit, OnDestroy {
     this.modals.unlock({timeout: 30}, (status) => this.openSendConfirmationModal());
   }
 
-  setInputOutput(txType: string, payType: string ): void {
+  setInputOutput(txType: string, payType: string): void {
     if (this.type === 'balanceTransfer') {
       switch (txType) {
         case TxType.BLIND:
@@ -231,6 +231,8 @@ export class SendComponent implements OnInit, OnDestroy {
           }
           break;
       }
+    } else {
+      this.send.input = this.send.output = txType as TxType;
     }
   }
 

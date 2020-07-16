@@ -170,7 +170,8 @@ export class ZapColdstakingComponent {
     this.log.d('zap splits', splits);
 
 
-    this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, 'coldstaking zap', '', 4, 64, false, {inputs: this.inputs}]).subscribe(info => {
+    this._rpc.call('sendtypeto', ['ghost', 'ghost', outputs, 'coldstaking zap', '',
+     4, 64, false, {inputs: this.inputs}]).subscribe(info => {
       this.log.d('zap', info);
 
       this.dialogRef.close();

@@ -34,7 +34,7 @@ export class StakeComponent implements OnInit {
     this._modals.unlock({ showStakeOnly: false, stakeOnly: true });
   }
 
-  lockWallet(): void{
+  lockWallet(): void {
     this._rpc.call('walletlock')
           .subscribe(
             success => this._rpcState.stateCall('getwalletinfo'),

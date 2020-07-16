@@ -14,13 +14,13 @@ describe('AddressHelper', () => {
   }));
 
   it('should test testnet address', inject([AddressHelper], (addressHelper: AddressHelper) => {
-    const testAddress = 'pXvYNzP4UoW5UD2C27PzbFQ4ztG2W4Xakx';
+    const testAddress = 'XZBvxrgAgDUJzeh9Ba7L9ezkNLCxvDEAii';
     expect(addressHelper.testAddress(testAddress, 'public')).toBe(true);
     expect(addressHelper.getAddress(testAddress)).toEqual(testAddress);
   }));
 
   it('should test mainnet address', inject([AddressHelper], (addressHelper: AddressHelper) => {
-    const mainAddress = 'PtF9rU2qR9JYBPvE3irVmeZn1YTsi3A9w9';
+    const mainAddress = 'GMhR1hP7aXMJ3C515KiB69gHYmrVNT5NhV';
     expect(addressHelper.testAddress(mainAddress, 'public')).toBe(true);
     expect(addressHelper.getAddress(mainAddress)).toEqual(mainAddress);
   }));
