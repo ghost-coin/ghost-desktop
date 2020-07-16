@@ -77,7 +77,7 @@ export class RevertColdstakingComponent implements OnInit {
               subfee: true,
               address: this.address,
               amount: tx.amount
-            }], '', '', 4, 64, true,{
+            }], '', '', 4, 64, true, {
               inputs: tx.inputs
             }]).subscribe(res => {
 
@@ -89,13 +89,13 @@ export class RevertColdstakingComponent implements OnInit {
                 this.fee = totalFee;
               }
             }, error => {
-              this.log.er('errr',error);
+              this.log.er('errr', error);
             });
           });
         });
       },
         error => {
-          this.log.er('errr',error);
+          this.log.er('errr', error);
         });
   }
 
