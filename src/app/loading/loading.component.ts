@@ -80,7 +80,7 @@ export class LoadingComponent implements OnInit {
                       this.rpc.daemonProtocol = +networkinfo.protocolversion;
                     }
                   }).catch(rpcErr => {
-                    // do nothing, mostly just prevents an error from not being handled in case of an issue
+                    this.log.er('getnetworkinfo failed: may already be stopped: ', rpcErr);
                   });
                 }
                 this.multi.refreshWalletList();
