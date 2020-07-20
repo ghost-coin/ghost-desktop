@@ -25,6 +25,9 @@ export class LoadingComponent implements OnInit {
 
   loadingMessage: string;
 
+  blockReceived: number = 0;
+  blockHeader: number = 0;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -66,27 +69,32 @@ export class LoadingComponent implements OnInit {
         this.con
           .whenRpcIsResponding()
           .subscribe(
-            async getwalletinfo => {
-              if (!this.rpc.daemonProtocol) {
-                await this.rpc.call('getnetworkinfo').toPromise().then(networkinfo => {
-                  if (networkinfo && +networkinfo.protocolversion) {
-                    this.rpc.daemonProtocol = +networkinfo.protocolversion;
-                  }
-                }).catch(rpcErr => {
-                  // do nothing, mostly just prevents an error from not being handled in case of an issue
-                });
-              }
-              this.multi.refreshWalletList();
-              // Swap smsg to the new wallet
-              this.rpc.call('smsgdisable').subscribe(
-                () => {
-                  this.activateWallet(getwalletinfo, true);
-                },
-                (err) => {
-                  this.log.er('smsgdisable failed: may already be stopped: ', err);
-                  this.activateWallet(getwalletinfo, false);
+            async response => {
+              if (response.rpc_command === 'blockchaininfo') {
+                this.blockReceived = response.blocks;
+                this.blockHeader = response.headers;
+              } else {
+                if (!this.rpc.daemonProtocol) {
+                  await this.rpc.call('getnetworkinfo').toPromise().then(networkinfo => {
+                    if (networkinfo && +networkinfo.protocolversion) {
+                      this.rpc.daemonProtocol = +networkinfo.protocolversion;
+                    }
+                  }).catch(rpcErr => {
+                    this.log.er('getnetworkinfo failed: may already be stopped: ', rpcErr);
+                  });
                 }
-              );
+                this.multi.refreshWalletList();
+                // Swap smsg to the new wallet
+                this.rpc.call('smsgdisable').subscribe(
+                  () => {
+                    this.activateWallet(response, true);
+                  },
+                  (err) => {
+                    this.log.er('smsgdisable failed: may already be stopped: ', err);
+                    this.activateWallet(response, false);
+                  }
+                );
+              }
             },
             error => this.log.d('whenRpcIsResponding errored')
           );
