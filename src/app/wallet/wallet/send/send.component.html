@@ -191,6 +191,9 @@
                       [ngClass]="{'verify-sucess': checkAddress() === true, 'verify-error': checkAddress() === false }"
                       type="text" placeholder="Receiver's address" [(ngModel)]="send.toAddress"
                       (ngModelChange)="verifyAddress()"/>
+                <mat-hint *ngIf="!checkAddress() && this.send.toAddress">
+                  {{this.send.input !== TxType.PUBLIC && this.addressHelper.testAddress(this.send.toAddress, 'public') ? "Please enter a stealth address, this is a public address." : "Please enter a valid address."}}
+                </mat-hint>
               </mat-form-field>
               <span fxFlex="0 0 16px">
                 <mat-icon class="cursor-pointer" matTooltip="Pick from Address Book" (click)="openLookup()"
