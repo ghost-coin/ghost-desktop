@@ -99,9 +99,10 @@
           <div class="item"><div class="value">2</div><div class="desc">Shipped</div></div>
         </div>
       </mat-card>
-    </div><-- .buy-orders -->
-    <app-coldstake></app-coldstake>
-    <app-stake></app-stake>
+    </div><!-- .buy-orders -->
+    <app-coldstake></app-coldstake> 
+    <app-stake *ngIf="isHotstakingVisible()"></app-stake>
+<!-- Removed Cold Staking, Enable this component when needed -->
     <app-stakinginfo></app-stakinginfo>
 
     <!-- TODO: uncomment when widget management is ready -->
