@@ -88,6 +88,10 @@ export class TransactionsTableComponent implements OnInit {
     return tx != null && tx.type_in != null && tx.type_output != null;
   }
 
+  public isPoolStake(tx: Transaction): boolean {
+    return tx.getCategory() === 'stake' && tx.getAmountObject().getAmount() === 0;
+  }
+
   public getIOText(tx: Transaction): string {
     return `${tx.type_in.toUpperCase()} --> ${tx.type_output.toUpperCase()}`;
   }
