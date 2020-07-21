@@ -25,6 +25,13 @@ describe('AddressHelper', () => {
     expect(addressHelper.getAddress(mainAddress)).toEqual(mainAddress);
   }));
 
+  it('should test bech32 address', inject([AddressHelper], (addressHelper: AddressHelper) => {
+    const bech32Address = 'gx1qqp528m7654yhav5clp5jq83cfu6nwpl76atpqvlzn6hchk4ah7xs' +
+    'gcpqvrxkkzamn5mrw42gr97xcyna83p07zafy7p3kyx6q2qfz8k86m95qqqjtremu';
+    expect(addressHelper.testAddress(bech32Address, 'private')).toBe(true);
+    expect(addressHelper.getAddress(bech32Address)).toEqual(bech32Address);
+  }));
+
 });
 
 describe('Amount', () => {
