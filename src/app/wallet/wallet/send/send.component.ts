@@ -231,6 +231,8 @@ export class SendComponent implements OnInit, OnDestroy {
           }
           break;
       }
+    } else {
+      this.send.input = this.send.output = txType as TxType;
     }
   }
 
