@@ -6,8 +6,9 @@ import { SharedModule } from '../../../shared/shared.module';
 
 import { StakinginfoComponent } from './stakinginfo.component';
 
-import { Amount, Duration } from '../../../../core/util/utils';
 import { RpcWithStateModule } from 'app/core/rpc/rpc.module';
+import {ColdstakeService} from '../coldstake/coldstake.service';
+import {StakeService} from '../stake/stake.service';
 
 describe('StakinginfoComponent', () => {
   let component: StakinginfoComponent;
@@ -22,7 +23,7 @@ describe('StakinginfoComponent', () => {
         CoreUiModule.forRoot(),
       ],
       declarations: [ StakinginfoComponent ],
-      providers: []
+      providers: [ColdstakeService, StakeService]
     })
     .compileComponents();
   }));
@@ -35,5 +36,13 @@ describe('StakinginfoComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should get stake service', () => {
+    expect(component._stake).toBeDefined();
+  });
+
+  it('should get coldstake service', () => {
+    expect(component._coldstake).toBeDefined();
   });
 });
