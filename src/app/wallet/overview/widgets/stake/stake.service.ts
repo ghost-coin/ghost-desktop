@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy, OnInit } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
 
 import { Log } from 'ng2-logger';
 import { Amount } from '../../../../core/util/utils';
@@ -51,6 +51,18 @@ export class StakeService implements OnDestroy {
     this.update();
   }
 
+  checkLockStatus(): boolean {
+    return [
+      'Unlocked',
+      'Unlocked, staking only',
+      'Unencrypted'
+    ].includes(this.encryptionStatus);
+  }
+
+  isLocked(): boolean {
+    return !this.checkLockStatus();
+  }
+
   update() {
     this._rpcState.observe('getwalletinfo', 'encryptionstatus')
     .pipe(takeWhile(() => !this.destroyed))
@@ -62,8 +74,7 @@ export class StakeService implements OnDestroy {
       this.log.d(`stakingamount ${this.hotstake.amount}`);
 
       if ('enabled' in stakinginfo) {
-        const enabled = stakinginfo['enabled'];
-        this.stakingEnabled = enabled;
+        this.stakingEnabled = stakinginfo['enabled'];
       } else {
         this.stakingEnabled = false;
       }

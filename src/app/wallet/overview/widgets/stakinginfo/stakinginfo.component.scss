@@ -5,6 +5,15 @@
   padding: 0;
 }
 
+.subtitle {
+  font-size: 11px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  color: #747c82;
+  opacity: 0.55;
+}
+
 .staking-overview { // listing of staking stats
   width: 100%;
   .row {

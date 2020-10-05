@@ -7,6 +7,7 @@ import { ManageWidgetsComponent } from '../../modals/manage-widgets/manage-widge
 import { take } from 'rxjs/operators';
 import { ColdstakeService } from './widgets/coldstake/coldstake.service';
 import { StakeService } from './widgets/stake/stake.service';
+import {Log} from 'ng2-logger';
 
 @Component({
   selector: 'app-overview',
@@ -32,8 +33,7 @@ export class OverviewComponent implements OnInit {
      .subscribe(chain => this.testnet = chain === 'test');
   }
 
-  public isHotstakingVisible(): boolean {
+  public isHotStakingVisible(): boolean {
     return !this._coldstake.coldStakingEnabled || this._hotstake.hotstake.amount > 0;
   }
-
 }

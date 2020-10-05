@@ -40,16 +40,4 @@ export class StakeComponent implements OnInit {
             success => this._rpcState.stateCall('getwalletinfo'),
             error => this.log.er('walletlock error'));
   }
-
-  checkLockStatus(): boolean {
-    return [
-      'Unlocked',
-      'Unlocked, staking only',
-      'Unencrypted'
-    ].includes(this._stake.encryptionStatus);
-  }
-
-  isLocked(): boolean {
-    return !this.checkLockStatus();
-  }
 }
