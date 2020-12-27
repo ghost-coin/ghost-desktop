@@ -49,3 +49,7 @@ Thumbs.db
 /packages
 
 yarn-error.log
+
+.env
+electron-builder.env
+resources/configuration/certs.p12
