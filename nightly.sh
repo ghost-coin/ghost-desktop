@@ -6,7 +6,7 @@ yarn run build:electron:prod
 
 # Linux
 if [[ $TRUE_COMMIT_MESSAGES != *"-linux"* ]]
-then 
+then
     echo 'Linux build' && echo -en 'travis_fold:start:script.linux\\r'
     DEBUG=electron-builder yarn run travis:linux
 
@@ -20,13 +20,14 @@ fi
 
 # OSX
 if [[ $TRUE_COMMIT_MESSAGES != *"-mac"* ]]
-then 
+then
 
     echo 'Mac build' && echo -en 'travis_fold:start:script.mac\\r'
     DEBUG=electron-builder yarn run travis:mac
 
     cd packages
     mv `ls | grep "ghost-desktop.*mac.zip"` ghost-desktop-mac-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.zip
+    mv `ls | grep "ghost-desktop.*mac.dmg"` ghost-desktop-mac-PR$TRAVIS_PULL_REQUEST-$TRUE_COMMIT.dmg
     cd ..
 
     echo -en 'travis_fold:end:script.mac\\r'
@@ -66,7 +67,7 @@ fi
 
 # Upload
 if [[ $TRUE_COMMIT_MESSAGES != *"-upload"* ]]
-then 
+then
     cd packages
     declare -a Uploads
     Uploads=("${TRUE_COMMIT_MESSAGES}\nNote: the download links expire after 10 days.\n")
