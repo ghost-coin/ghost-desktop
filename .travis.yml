@@ -30,10 +30,6 @@ stages:
   - name: deploy
     if: branch = ghost-2.4
 
-before_install:
-  - sudo apt-get install -y chromium-browser graphicsmagick icnsutils
-  - export CHROME_BIN=chromium-browser
-
 jobs:
   include:
     - stage: install
@@ -61,7 +57,7 @@ jobs:
         - echo -en 'travis_fold:end:script.test\\r'
     - stage: deploy
       os: osx
-      osx_image: xcode10.1
+      osx_image: xcode11.7
       script:
         - yarn run package:mac --publish=always
         - yarn run package:win --publish=always
