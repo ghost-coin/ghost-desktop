@@ -50,7 +50,7 @@ jobs:
       env:
         EP_PRE_RELEASE: true
       script:
-        - yarn run deploy
+        - npm run deploy
 
 # Disable coveralls for now
 # after_script:
