@@ -23,7 +23,7 @@ services:
   - xvfb
 
 stages:
-  - install
+  - preecho
   - build
   - lint
   - test
@@ -32,13 +32,11 @@ stages:
 
 jobs:
   include:
-    - stage: install
+    - stage: preecho
       script:
         - export TRUE_COMMIT_MESSAGES=$(git log --oneline -2 | grep "+build")
         - export TRUE_COMMIT=$(echo $TRUE_COMMIT_MESSAGES | awk '{print $1}')
         - echo $TRUE_COMMIT_MESSAGES
-
-        - yarn install
         - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/ghost-coin/ghost-market; fi;
     - stage: build
       script:
@@ -59,7 +57,6 @@ jobs:
       os: osx
       osx_image: xcode11.7
       script:
-        - yarn
         - yarn run package:mac --publish=always
         - yarn run package:win --publish=always
         - yarn run package:win32 --publish=always
