@@ -22,34 +22,51 @@ cache:
 services:
   - xvfb
 
+stages:
+  - install
+  - build
+  - lint
+  - test
+  - name: deploy
+    if: branch = ghost-2.4
+
 before_install:
   - sudo apt-get install -y chromium-browser graphicsmagick icnsutils
   - export CHROME_BIN=chromium-browser
 
-before_script:
-  - export TRUE_COMMIT_MESSAGES=$(git log --oneline -2 | grep "+build")
-  - export TRUE_COMMIT=$(echo $TRUE_COMMIT_MESSAGES | awk '{print $1}')
-  - echo $TRUE_COMMIT_MESSAGES
+jobs:
+  include:
+    - stage: install
+      script:
+        - export TRUE_COMMIT_MESSAGES=$(git log --oneline -2 | grep "+build")
+        - export TRUE_COMMIT=$(echo $TRUE_COMMIT_MESSAGES | awk '{print $1}')
+        - echo $TRUE_COMMIT_MESSAGES
 
-  - yarn install
-  - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/ghost-coin/ghost-market; fi;
-
-script:
-  - echo 'Build Dist' && echo -en 'travis_fold:start:script.build\\r'
-  - yarn build --base-href="./"
-  - echo -en 'travis_fold:end:script.build\\r'
-
-  - echo 'Lint Codebase' && echo -en 'travis_fold:start:script.lint\\r'
-  - yarn run lint
-  - echo -en 'travis_fold:end:script.lint\\r'
-
-  - echo 'Test Codebase' && echo -en 'travis_fold:start:script.test\\r'
-  - yarn run travis:test
-  - echo -en 'travis_fold:end:script.test\\r'
-
-  - if [[ $TRUE_COMMIT_MESSAGES == *"+build"* ]]; then ./nightly.sh; fi;
-
-  - echo 'Done!'
+        - yarn install
+        - if [[ $TRUE_COMMIT_MESSAGES == *"+latest"* ]]; then yarn add https://github.com/ghost-coin/ghost-market; fi;
+    - stage: build
+      script:
+        - echo 'Build Dist' && echo -en 'travis_fold:start:script.build\\r'
+        - yarn build --base-href="./"
+        - echo -en 'travis_fold:end:script.build\\r'
+    - stage: lint
+      script:
+        - echo 'Lint Codebase' && echo -en 'travis_fold:start:script.lint\\r'
+        - yarn run lint
+        - echo -en 'travis_fold:end:script.lint\\r'
+    - stage: test
+      script:
+        - echo 'Test Codebase' && echo -en 'travis_fold:start:script.test\\r'
+        - yarn run travis:test
+        - echo -en 'travis_fold:end:script.test\\r'
+    - stage: deploy
+      os: osx
+      osx_image: xcode10.1
+      script:
+        - yarn run package:mac --publish=always
+        - yarn run package:win --publish=always
+        - yarn run package:win32 --publish=always
+        - yarn run package:linux --publish=always
 
 # Disable coveralls for now
 # after_script:
