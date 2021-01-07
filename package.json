@@ -162,7 +162,12 @@
     "asar": true,
     "asarUnpack": [
       "node_modules/sqlite3/**/*"
-    ]
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "ghost-coin",
+      "repo": "ghost-desktop"
+    }
   },
   "dependencies": {
     "@jedmao/ini-parser": "^0.2.1",
