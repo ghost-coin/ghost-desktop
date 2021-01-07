@@ -1,6 +1,6 @@
 {
   "name": "ghost-desktop",
-  "version": "2.0.8-alpha",
+  "version": "2.0.8-beta",
   "branch": "ghost-2.4",
   "license": "GPL-2.0",
   "description": "Ghost Desktop -  private currency, messaging & self-governance",

@@ -47,6 +47,8 @@ jobs:
     - stage: deploy
       os: osx
       osx_image: xcode11.7
+      env:
+        EP_PRE_RELEASE: true
       script:
         - yarn run deploy
 
