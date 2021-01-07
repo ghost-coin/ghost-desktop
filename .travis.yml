@@ -59,6 +59,7 @@ jobs:
       os: osx
       osx_image: xcode11.7
       script:
+        - yarn
         - yarn run package:mac --publish=always
         - yarn run package:win --publish=always
         - yarn run package:win32 --publish=always
