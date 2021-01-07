@@ -47,7 +47,8 @@
     "travis:win64": "electron-builder --win --x64 && yarn run checksum",
     "travis:win32": "electron-builder --win --ia32 && yarn run checksum",
     "travis:test": "ng test --watch=false --code-coverage",
-    "start": "yarn run start:electron:fast"
+    "start": "yarn run start:electron:fast",
+    "deploy": "yarn run build:electron:prod && electron-builder -mwl --publish=always && electron-builder --win --ia32 --publish-always && yarn run checksum"
   },
   "productName": "Ghost Desktop",
   "build": {
