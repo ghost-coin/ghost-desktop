@@ -53,3 +53,5 @@ yarn-error.log
 .env
 electron-builder.env
 resources/configuration/certs.p12
+
+yarn.lock

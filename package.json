@@ -1,6 +1,6 @@
 {
   "name": "ghost-desktop",
-  "version": "2.0.8-alpha",
+  "version": "2.0.8-beta",
   "branch": "ghost-2.4",
   "license": "GPL-2.0",
   "description": "Ghost Desktop -  private currency, messaging & self-governance",
@@ -47,7 +47,8 @@
     "travis:win64": "electron-builder --win --x64 && yarn run checksum",
     "travis:win32": "electron-builder --win --ia32 && yarn run checksum",
     "travis:test": "ng test --watch=false --code-coverage",
-    "start": "yarn run start:electron:fast"
+    "start": "yarn run start:electron:fast",
+    "deploy": "npm run build:electron:prod && electron-builder -mw --publish=always && electron-builder --win --ia32 --publish-always && npm run checksum"
   },
   "productName": "Ghost Desktop",
   "build": {
@@ -162,7 +163,12 @@
     "asar": true,
     "asarUnpack": [
       "node_modules/sqlite3/**/*"
-    ]
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "ghost-coin",
+      "repo": "ghost-desktop"
+    }
   },
   "dependencies": {
     "@jedmao/ini-parser": "^0.2.1",

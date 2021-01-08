@@ -15,7 +15,7 @@ module.exports = async (params) => {
   console.log("afterSign hook triggered", params);
 
   // Same appId in electron-builder.
-  let appId = "com.ombea-desktop-widget.app";
+  let appId = "com.ghostbymcafee.desktop";
 
   let appPath = path.join(
     params.appOutDir,
