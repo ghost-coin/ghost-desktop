@@ -51,6 +51,8 @@ jobs:
         EP_PRE_RELEASE: true
       script:
         - npm run deploy
+      before_cache:
+        - rm -rf $HOME/.cache/electron-builder/wine
 
 # Disable coveralls for now
 # after_script:

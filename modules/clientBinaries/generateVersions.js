@@ -53,7 +53,7 @@ var getLinuxAsset = function (data, asset, hashes) {
   } else if (asset.name.includes("arm")) {
     data.arch = "arm";
   }
-  data.type = asset.content_type === "application/gzip" ? "tar" : undefined;
+  data.type = asset.content_type === "application/gzip" || asset.content_type === "application/x-gtar" ? "tar" : undefined;
   data.sha256 = getHash(data.platform, asset.name, hashes);
 }
 
