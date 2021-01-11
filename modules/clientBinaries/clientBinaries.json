@@ -46,6 +46,28 @@
               }
             }
           }
+        },
+        "linux": {
+          "x64": {
+            "download": {
+              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.9/ghost-0.19.1.9-x86_64-linux-gnu_nousb.tar.gz",
+              "type": "tar",
+              "sha256": "0a065e89e21a1d60660720835417418ae7c1c7f257a13a706a1c608cfdd7d5dc",
+              "bin": "ghost-0.19.1.9/bin/ghostd"
+            },
+            "bin": "ghostd",
+            "commands": {
+              "sanity": {
+                "args": [
+                  "-version"
+                ],
+                "output": [
+                  "Ghost Core version",
+                  "0.19.1.9"
+                ]
+              }
+            }
+          }
         }
       }
     }
