@@ -24,7 +24,9 @@ services:
 
 stages:
   - check
-  - name: deploy
+  - name: deploy mw
+    if: branch = ghost-2.4
+  - name: deploy linux
     if: branch = ghost-2.4
 
 jobs:
@@ -44,15 +46,20 @@ jobs:
         - echo 'Test Codebase' && echo -en 'travis_fold:start:script.test\\r'
         - yarn run travis:test
         - echo -en 'travis_fold:end:script.test\\r'
-    - stage: deploy
+    - stage: deploy mw
       os: osx
       osx_image: xcode11.7
-      before_script:
-        - brew install rpm
       script:
-        - npm run deploy
+        - npm run deploy-mw
       before_cache:
         - rm -rf $HOME/.cache/electron-builder/wine
+    - stage: deploy linux
+      os: linux
+      dist: trusty
+      before_script:
+        - sudo apt-get install --no-install-recommends -y rpm
+      script:
+        - npm run deploy-linux
 
 # Disable coveralls for now
 # after_script:
