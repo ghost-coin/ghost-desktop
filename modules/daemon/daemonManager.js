@@ -12,15 +12,7 @@ const branch = require('../../package.json').branch;
 const ClientBinariesManager = require('../clientBinaries/clientBinariesManager').Manager;
 const rpc = require('../rpc/rpc');
 
-// master
-// const BINARY_URL = 'https://raw.githubusercontent.com/ghost-coin/ghost-desktop/master/modules/clientBinaries/clientBinaries.json';
-
-// dev
-// const BINARY_URL = 'https://raw.githubusercontent.com/ghost-coin/ghost-desktop/develop/modules/clientBinaries/clientBinaries.json';
-const branchName = (branch || 'develop');
-const BINARY_URL = `https://raw.githubusercontent.com/ghost-coin/ghost-desktop/${branchName}/modules/clientBinaries/clientBinaries.json`;
-
-//const ALLOWED_DOWNLOAD_URLS_REGEX = new RegExp('*', 'i');
+const BINARY_URL = `https://github.com/ghost-coin/ghost-core/releases/latest/download/clientBinaries.json`;
 
 class DaemonManager extends EventEmitter {
   constructor() {
