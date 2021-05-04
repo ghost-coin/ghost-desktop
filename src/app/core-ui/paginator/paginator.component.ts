@@ -12,8 +12,8 @@ enum Intl {
   itemsPerPageLabel = 'Items per page',
   nextPageLabel = 'Next page',
   previousPageLabel = 'Previous page',
-  firstPageLable = 'Fist Page',
-  lastPageLable = 'Last Page',
+  firstPageLable = 'First page',
+  lastPageLable = 'Last page',
 }
 
 @Component({
