@@ -6,7 +6,7 @@
         "linux": {
           "arm": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.10/ghost-0.19.1.10-arm-linux-gnueabihf.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-legacy/releases/download/v0.19.1.10/ghost-0.19.1.10-arm-linux-gnueabihf.tar.gz",
               "type": "tar",
               "sha256": "d368197ce7e40cafc68b641dd8b2c79e806212ace8d2974e1ce892a9bfab8c8c",
               "bin": "ghost-0.19.1.10/bin/ghostd"
@@ -26,7 +26,7 @@
           },
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.10/ghost-0.19.1.10-x86_64-linux-gnu.tgz",
+              "url": "https://github.com/ghost-coin/ghost-legacy/releases/download/v0.19.1.10/ghost-0.19.1.10-x86_64-linux-gnu.tgz",
               "type": "tar",
               "sha256": "0190e4f619cbfd61a9b104a2ec6de1694486907c4179ee4cb281e4d7a016843d",
               "bin": "ghost-0.19.1.10/bin/ghostd"
@@ -48,7 +48,7 @@
         "mac": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.10/ghost-0.19.1.10-osx64.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-legacy/releases/download/v0.19.1.10/ghost-0.19.1.10-osx64.tar.gz",
               "type": "tar",
               "sha256": "277f565a5d97a5e907fc4b828e136fc41557192181fdae7d7baa541d38abf6dc",
               "bin": "ghost-0.19.1.10/bin/ghostd"
@@ -70,7 +70,7 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.19.1.10/ghost-0.19.1.10-win64.zip",
+              "url": "https://github.com/ghost-coin/ghost-legacy/releases/download/v0.19.1.10/ghost-0.19.1.10-win64.zip",
               "type": "zip",
               "sha256": "a5d42f83e459500bdb6859023253213a7a079abac0574042c8a5495c7c4a8f94",
               "bin": "ghost-0.19.1.10/bin/ghostd.exe"
