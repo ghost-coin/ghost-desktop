@@ -61,7 +61,9 @@ export class ConnectionCheckerService implements OnDestroy {
           (getwalletinfo: any) => this.WalletRpcHasResponded(getwalletinfo),
           (error: any) => {
             if (error.code === -18) {
-              this.rpc.wallet = '';
+              this.rpc.call('createwallet', ['']).subscribe(
+                (getwalletinfo: any) => this.WalletRpcHasResponded(getwalletinfo),
+              );
             }
             this.log.d('performCheck:wallet on rpc (error is normal here) ', error);
           }
