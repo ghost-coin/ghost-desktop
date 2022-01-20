@@ -6,7 +6,7 @@
         "linux": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.21.1.2/ghost-0.21.1.2-x86_64-linux-gnu.tgz",
+              "url": "https://github.com/ghost-coin/ghost-intermediate/releases/download/v0.21.1.7/ghost-0.21.1.7-x86_64-linux-gnu.tgz",
               "type": "tar",
               "sha256": "70ee038c73b2ffedbd45430d8e1271d4a2ec92472bb6438c48511be168fd78e5",
               "bin": "ghost-0.21.1.2/bin/ghostd"
@@ -28,7 +28,7 @@
         "mac": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.21.1.2/ghost-0.21.1.2-osx64.tar.gz",
+              "url": "https://github.com/ghost-coin/ghost-intermediate/releases/download/v0.21.1.7/ghost-0.21.1.7-osx64.tar.gz",
               "type": "tar",
               "sha256": "811f0b2515eee9d8a201524542be4d25cafba6f09666c3fd0435a12fde3c09d5",
               "bin": "ghost-0.21.1.2/bin/ghostd"
@@ -50,7 +50,7 @@
         "win": {
           "x64": {
             "download": {
-              "url": "https://github.com/ghost-coin/ghost-core/releases/download/v0.21.1.2/ghost-0.21.1.2-win64.zip",
+              "url": "https://github.com/ghost-coin/ghost-intermediate/releases/download/v0.21.1.7/ghost-0.21.1.7-win64.zip",
               "type": "zip",
               "sha256": "39db650ad71772c2879bb3001f633ef407dbe78c575e7f0ad576dbafa7bcd242",
               "bin": "ghost-0.21.1.2/bin/ghostd.exe"
