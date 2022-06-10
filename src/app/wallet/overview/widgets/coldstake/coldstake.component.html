@@ -98,7 +98,7 @@
       <button mat-button class="small" color="primary"
         matTooltip="Fast-forward to 100%"
         (click)="zapanon()"
-        *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
+        *ngIf="_coldstake.coldStakingEnabled && _coldstake.anonBalance > 0.001">
         Zapanon
         <!-- <span class="tag zapanon">{{ hotstaking.txs.length }}</span> -->
       </button>
