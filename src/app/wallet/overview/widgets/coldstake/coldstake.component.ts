@@ -6,6 +6,7 @@ import { ModalsHelperService } from 'app/modals/modals.module';
 import { ColdstakeService } from './coldstake.service'
 
 import { ZapColdstakingComponent } from './zap-coldstaking/zap-coldstaking.component';
+import { ZapAnonColdstakingComponent } from './zap-coldstaking/zap-coldstaking.component';
 import { RevertColdstakingComponent } from './revert-coldstaking/revert-coldstaking.component';
 
 @Component({
@@ -27,16 +28,22 @@ export class ColdstakeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._coldstake.update()
+    this._coldstake.update();
+    this._coldstake.updateAnon();
   }
 
   zap() {
     this._modals.unlock({}, (status) => this.openZapColdstakingModal());
   }
+  
+  zapanon() {
+    this._modals.unlock({}, (status) => this.openZapAnonColdstakingModal());
+  }
 
   revert() {
     this._modals.unlock({}, (status) => this.openRevertColdstakingModal());
   }
+  
 
   openRevertColdstakingModal() {
     const dialogRef = this.dialog.open(RevertColdstakingComponent);
@@ -44,6 +51,10 @@ export class ColdstakeComponent implements OnInit {
 
   openZapColdstakingModal(): void {
     const dialogRef = this.dialog.open(ZapColdstakingComponent);
+  }
+  
+  openZapAnonColdstakingModal(): void {
+    const dialogRef = this.dialog.open(ZapAnonColdstakingComponent);
   }
 
   openUnlockWalletModal(): void {

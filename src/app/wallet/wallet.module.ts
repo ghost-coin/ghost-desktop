@@ -13,6 +13,7 @@ import { StakinginfoComponent } from './overview/widgets/stakinginfo/stakinginfo
 import { StakeComponent } from './overview/widgets/stake/stake.component';
 import { ColdstakeComponent } from './overview/widgets/coldstake/coldstake.component';
 import { ZapColdstakingComponent } from './overview/widgets/coldstake/zap-coldstaking/zap-coldstaking.component';
+import { ZapAnonColdstakingComponent } from './overview/widgets/coldstake/zap-coldstaking/zap-coldstaking.component';
 import { RevertColdstakingComponent } from './overview/widgets/coldstake/revert-coldstaking/revert-coldstaking.component';
 import { HelpComponent } from './help/help.component';
 
@@ -30,6 +31,7 @@ import { ProposalDetailsComponent } from './proposals/proposal-details/proposal-
     StakeComponent,
     ColdstakeComponent,
     ZapColdstakingComponent,
+    ZapAnonColdstakingComponent,
     RevertColdstakingComponent,
     ProposalDetailsComponent,
     HelpComponent
@@ -44,6 +46,7 @@ import { ProposalDetailsComponent } from './proposals/proposal-details/proposal-
   entryComponents: [
   // Uncomment when Cold Stake enabled
     ZapColdstakingComponent,
+    ZapAnonColdstakingComponent,
     RevertColdstakingComponent
   ],
   exports: [],
