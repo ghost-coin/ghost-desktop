@@ -53,7 +53,6 @@ export class ColdstakeService implements OnDestroy {
     .subscribe(status => {
       this.encryptionStatus = status;
     });
-    console.log("fuck")
 
     this._rpc.call('getcoldstakinginfo').subscribe(coldstakinginfo => {
       this.log.d('stakingStatus called ' + coldstakinginfo['enabled']);
