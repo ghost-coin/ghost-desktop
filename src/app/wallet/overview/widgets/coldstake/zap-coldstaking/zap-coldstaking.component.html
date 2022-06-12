@@ -20,6 +20,13 @@
 
 
 <mat-dialog-actions fxLayoutAlign="end center">
+    
+  <p class="warning">
+    Reusing addresses decreases your financial privacy.
+  </p>
+    
+  <mat-checkbox (change)="check($event)">Reuse last address
+  </mat-checkbox>
 
   <button mat-button mat-dialog-close>
     <mat-icon fontSet="partIcon" fontIcon="part-cross"></mat-icon>
