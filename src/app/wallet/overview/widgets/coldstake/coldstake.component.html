@@ -54,6 +54,9 @@
       <button mat-button class="small" color="primary" matTooltip="Fast-forward to 100%" (click)="zap()" *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
         Zap
       </button>
+      <button mat-button class="small" color="primary" matTooltip="Fast-forward to 100%" (click)="zapanon()" *ngIf="_coldstake.coldStakingEnabled && _coldstake.anonBalance > 0.001">
+        Zapanon
+      </button>
       <button mat-button class="small" color="warn" matTooltip="Disable Cold Staking" (click)="revert()">
         Disable
       </button>
@@ -91,6 +94,13 @@
         *ngIf="_coldstake.coldStakingEnabled && _coldstake.coldstakeProgress < 100">
         Zap
         <!-- <span class="tag zap">{{ hotstaking.txs.length }}</span> -->
+      </button>
+      <button mat-button class="small" color="primary"
+        matTooltip="Fast-forward to 100%"
+        (click)="zapanon()"
+        *ngIf="_coldstake.coldStakingEnabled && _coldstake.anonBalance > 0.001">
+        Zapanon
+        <!-- <span class="tag zapanon">{{ hotstaking.txs.length }}</span> -->
       </button>
       <button mat-button class="small" color="warn"
         matTooltip="Disable Cold Staking"

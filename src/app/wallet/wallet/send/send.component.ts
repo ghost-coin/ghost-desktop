@@ -147,6 +147,7 @@ export class SendComponent implements OnInit, OnDestroy {
   }
 
   verifyAmount(): void {
+    //this.send.amount = parseFloat(String(this.send.amount));
 
     if ( +(this.send.amount || 0) === 0 ) {
       this.send.validAmount = false;

@@ -91,7 +91,7 @@ export class SendService {
   private send(tx: TransactionBuilder): Observable<any> {
     return this._rpc.call('sendtypeto', [tx.input, tx.output, [{
       address: tx.toAddress,
-      amount: tx.amount,
+      amount: parseFloat(String(tx.amount)),
       subfee: tx.subtractFeeFromAmount,
       narr: tx.narration
     }], tx.comment, tx.commentTo, tx.ringsize, 32, tx.estimateFeeOnly]);

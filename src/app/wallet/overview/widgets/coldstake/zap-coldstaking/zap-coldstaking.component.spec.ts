@@ -6,6 +6,7 @@ import { CoreModule } from '../../../../../core/core.module';
 import { CoreUiModule } from '../../../../../core-ui/core-ui.module';
 
 import { ZapColdstakingComponent } from './zap-coldstaking.component';
+import { ZapAnonColdstakingComponent } from './zap-coldstaking.component';
 import { ModalsHelperService } from 'app/modals/modals-helper.service';
 import { RpcWithStateModule } from 'app/core/rpc/rpc.module';
 
@@ -29,6 +30,35 @@ describe('ZapColdstakingComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ZapColdstakingComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+describe('ZapAnonColdstakingComponent', () => {
+  let component: ZapAnonColdstakingComponent;
+  let fixture: ComponentFixture<ZapAnonColdstakingComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        SharedModule,
+        RpcWithStateModule.forRoot(),
+        CoreModule.forRoot(),
+        CoreUiModule.forRoot()
+      ],
+      declarations: [ ZapAnonColdstakingComponent ],
+      providers: [{ provide: MatDialogRef}, ModalsHelperService]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ZapAnonColdstakingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
