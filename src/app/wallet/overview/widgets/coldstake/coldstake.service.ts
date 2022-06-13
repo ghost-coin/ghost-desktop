@@ -24,6 +24,7 @@ export class ColdstakeService implements OnDestroy {
   };
 
   coldStakingEnabled: boolean = undefined;
+  anonBalance: number = 0;
   public encryptionStatus: string = 'Locked';
 
   private progress: Amount = new Amount(0, 2);
@@ -39,6 +40,10 @@ export class ColdstakeService implements OnDestroy {
     this._rpcState.observe('getcoldstakinginfo', 'percent_in_coldstakeable_script')
       .pipe(takeWhile(() => !this.destroyed))
       .subscribe(progress =>  this.progress = new Amount(progress, 2));
+    this._rpcState.observe('getbalances', 'mine')
+      .pipe(takeWhile(() => !this.destroyed))
+      .subscribe(balance => this.anonBalance = balance['anon_trusted']);
+    this.updateAnon();
     this.update();
   }
 
@@ -63,6 +68,14 @@ export class ColdstakeService implements OnDestroy {
         this.coldStakingEnabled = false;
       }
       this.updateStakingInfo();
+    }, error => this.log.er('couldn\'t get coldstakinginfo', error));
+  }
+  
+  updateAnon(){
+
+    this._rpc.call('getbalances').subscribe(balance => {
+        this.anonBalance = balance['mine']['anon_trusted'];
+      
     }, error => this.log.er('couldn\'t get coldstakinginfo', error));
   }
 
