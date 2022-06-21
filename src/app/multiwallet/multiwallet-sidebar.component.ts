@@ -47,7 +47,7 @@ export class MultiwalletSidebarComponent implements OnInit, OnDestroy {
           this.navigateToLoading(wallet.name);
         } else {
           // load the wallet, even possible with the wrong active rpc.
-          this.walletRpc.call('loadwallet', [wallet.name]).subscribe(
+          this.walletRpc.call('loadwallet', [wallet.name, true]).subscribe(
             w => {
               this.navigateToLoading(wallet.name);
             },
