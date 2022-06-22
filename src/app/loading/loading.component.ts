@@ -27,6 +27,7 @@ export class LoadingComponent implements OnInit {
 
   blockReceived: number = 0;
   blockHeader: number = 0;
+  johnQuote: string = this.getQuote();
 
   constructor(
     private router: Router,
@@ -178,5 +179,39 @@ export class LoadingComponent implements OnInit {
 
   private getVersion(): any {
     return JSON.parse(localStorage.getItem('terms'));
+  }
+  
+  private getQuote() {
+  const quotes = [
+  'Сryptocurrency is the last chance for financial freedom.',
+  'Cryptocurrency can free us from the imprisonment that existing currency has put us in.',
+  'What business is it of our governments to know what we earn?',
+  'The SEC is a festering pustule on the face of America.',
+  'Privacy is a human right.',
+  'Ignorance and confidence go hand in hand. Those who are ignorant are the ones who are often the most confident. The latter should never be mistaken for knowledge.',
+  'If you own the facts, you may distort them as you like.',
+  'If the majority holds something of value, you can be certain it has none.',
+  'Opinions need a willing ear.',
+  'You cannot just shout out your opinions to those who do not want to hear it. Opinions need a willing ear. Unsolicited advice and opinions are disrepectful and stupid.',
+  'Any idiot can make money, Keeping money, very few can do.',
+  'It’s easy to make money. What is difficult is knowing how to spend it and save it. And that’s what separates the rich from the poor.',
+  'I would describe myself as quite sane and lucid, which is why I’m still alive.',
+  'The world is insane. And it takes a lot to stay sane in such a world. But that is the only way to survive. You need to stay sane and lucid.',
+  'I simply would like to live comfortably day by day, fish, swim, enjoy my declining years.',
+  'In the end, we all deserve a retirement plan. As we grow old, all we want to do is to enjoy our life and do the things that we are most comfortable with and require the least effort.',
+  'To say what your disguise is would be foolish.',
+  'You cannot give up your cover. We all need a facade to survive the world. To reveal everything about you to everyone is stupid and foolish.',
+  'The world chooses to think what the world thinks.',
+  'People believe what they want to believe and you cannot really change that. The only thing that you need to concern yourself with is your own growth. Forget what others think and do what you desire.',
+  'Disobedience is the vehicle of progress.',
+  'Progress only comes to those who dare to be disobedient and rebel. Throughout history, it has always been the ones who were brave enough to challenge the system who have brought forth progress.',
+  'True love has no object, It is a state of being.',
+  'True love transcends materialism. It is when you learn to see the person for what they are. You see beyond their flaws and imperfections and learn to accept them as a whole.',
+  'We’re missing that, We’re missing the people who have the courage to walk into the wilderness just to see what’s there.'
+  ];
+  
+  const random = Math.floor(Math.random() * quotes.length);
+  
+  return quotes[random];
   }
 }
