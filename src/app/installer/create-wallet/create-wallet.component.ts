@@ -155,7 +155,7 @@ export class CreateWalletComponent implements OnInit {
         break;
 
       case Steps.WALLET_NAME:
-        const params = [this.walletname, false, false, '', false, this.isLegacy ? true : false];
+        const params = [this.walletname, false, false, '', false, false, true, this.isLegacy ? true : false];
         this._rpc.call('createwallet', params).subscribe(
           wallet => {
             this.log.d('createwallet: ', wallet);
